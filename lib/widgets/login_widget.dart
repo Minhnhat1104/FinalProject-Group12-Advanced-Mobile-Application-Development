@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/model/user_model.dart';
+import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class LoginWidget extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -8,13 +9,10 @@ class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
+      appBar: HeaderNavBar(),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               controller: usernameController,
@@ -31,7 +29,7 @@ class LoginWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16.0),
-            ElevatedButton(
+            ElevatedButton( 
               onPressed: () {
                 String username = usernameController.text;
                 String password = passwordController.text;
