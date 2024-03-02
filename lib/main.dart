@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:student_hub/screens/login_screen.dart';
+import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/constants/style.dart';
+import 'package:student_hub/screens/Home/index.dart';
+import 'package:student_hub/screens/Login/index.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 void main() {
@@ -11,9 +14,20 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(), // Set LoginScreen as the home screen
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: HeaderNavBar(),
+          body: Theme(
+            data: ThemeData.light().copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: tdNeonBlue,
+              ),
+            ),
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
+                child: Home()),
+          ), // Set LoginScreen as the home screen
+        ));
   }
 }
