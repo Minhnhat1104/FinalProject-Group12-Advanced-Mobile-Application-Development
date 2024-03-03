@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
-import 'package:student_hub/screens/Signup/index.dart';
+import 'package:student_hub/screens/SignupStep1/index.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
             ),
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
-                child: SignUpScreen()),
+                child: SignupStep1Screen()),
           ), // Set LoginScreen as the home screen
         ));
   }

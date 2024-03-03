@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/model/signup_option_model.dart';
 import 'package:student_hub/model/user_model.dart';
 import 'package:student_hub/screens/Login/index.dart';
+import 'package:student_hub/screens/SignUpStep1/signup_option_item.dart';
 
+class SignupStep1Widget extends StatefulWidget {
+  const SignupStep1Widget({Key? key}) : super(key: key);
 
-class SignupStep1Widget extends StatelessWidget {
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  @override
+  State<SignupStep1Widget> createState() => _SignupStep1WidgetState();
+}
+
+class _SignupStep1WidgetState extends State<SignupStep1Widget> {
+  final List<SignUpOption> optionList = SignUpOption.optionList();
 
   @override
   Widget build(BuildContext context) {
@@ -35,38 +42,24 @@ class SignupStep1Widget extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 12.0),
-              TextField(
-                controller: usernameController,
-                decoration: InputDecoration(
-                  labelText: 'Username or email',
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
-                  ),
-                  labelStyle: TextStyle(color: Colors.grey[500]),
-                ),
-              ),
               SizedBox(height: 16.0),
-              TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
-                  ),
-                  labelStyle: TextStyle(color: Colors.grey[500]),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: optionList.length,
+                  itemBuilder: (context, index) {
+                    final option = optionList[index];
+                    return SignUpOptionItem(
+                      signupOption: option,
+                      onToDoChanged: _handleToDoChange,
+                    );
+                  },
                 ),
               ),
-              SizedBox(height: 30.0),
               FractionallySizedBox( 
                 widthFactor: 1, 
                 child: ElevatedButton(
                   onPressed: () {
-                    String username = usernameController.text;
-                    String password = passwordController.text;
-                    User user = User(username: username, password: password);
-                    // Handle login logic
+                    // Logic to create account
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: tdNeonBlue, 
@@ -90,14 +83,13 @@ class SignupStep1Widget extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {
                           // Navigate to the login page
-                          // Replace `LoginPage()` with the actual login page widget
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => LoginScreen()),
                           );
                         },
                         child: RichText(
-                          textAlign: TextAlign.center, // Align text to the center
+                          textAlign: TextAlign.center, 
                           text: TextSpan(
                             children: [
                               TextSpan(
@@ -112,7 +104,7 @@ class SignupStep1Widget extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: tdNeonBlue,
-                                  decoration: TextDecoration.underline, // Add underline to the text
+                                  decoration: TextDecoration.underline, 
                                 ),
                               ),
                             ],
@@ -129,5 +121,11 @@ class SignupStep1Widget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _handleToDoChange(SignUpOption todo) {
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
   }
 }
