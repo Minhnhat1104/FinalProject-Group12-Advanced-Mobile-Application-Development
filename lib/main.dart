@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
             ),
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
-                child: Home()),
+                child: LoginScreen()),
           ), // Set LoginScreen as the home screen
         ));
   }
