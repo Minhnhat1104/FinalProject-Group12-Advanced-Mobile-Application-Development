@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/user_model.dart';
+import 'package:student_hub/screens/Login/index.dart';
 
-class LoginWidget extends StatelessWidget {
+
+class SignupStep1Widget extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -24,7 +26,7 @@ class LoginWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 14.0),
                 child: Center(
                   child: Text(
-                    'Login with StudentHub',
+                    'Join as company or Student',
                     style: TextStyle(
                       fontSize: 20, 
                       fontWeight: FontWeight.w600,
@@ -58,7 +60,7 @@ class LoginWidget extends StatelessWidget {
               ),
               SizedBox(height: 30.0),
               FractionallySizedBox( 
-                widthFactor: 0.7, 
+                widthFactor: 1, 
                 child: ElevatedButton(
                   onPressed: () {
                     String username = usernameController.text;
@@ -71,7 +73,7 @@ class LoginWidget extends StatelessWidget {
                     minimumSize: Size(double.infinity, 50),
                   ),
                   child: Text(
-                    'Sign In',
+                    'Create account',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -79,55 +81,46 @@ class LoginWidget extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 30.0),
               Expanded(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey[400],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text(
-                            "Don't have an Student Hub account?",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey[500],
-                            ),
-                            textAlign: TextAlign.center, // Align text to the center
-                          ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey[400],
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 8.0), 
-                    Container(
-                      margin: EdgeInsets.only(top: 12.0),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // Handle sign-up button press
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          // Navigate to the login page
+                          // Replace `LoginPage()` with the actual login page widget
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LoginScreen()),
+                          );
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[300], 
-                          minimumSize: Size(200, 50), 
-                        ),
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black87, 
+                        child: RichText(
+                          textAlign: TextAlign.center, // Align text to the center
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Already have an account? ",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Log in",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: tdNeonBlue,
+                                  decoration: TextDecoration.underline, // Add underline to the text
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
+                    SizedBox(height: 8.0),
                   ],
                 ),
               ),
