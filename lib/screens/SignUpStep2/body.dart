@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/company_model.dart';
-import 'package:student_hub/screens/Login/index.dart';
-
 
 class SignupStep2Widget extends StatelessWidget {
   final TextEditingController fullnameController = TextEditingController();
@@ -75,7 +73,7 @@ class SignupStep2Widget extends StatelessWidget {
               Row(
                 children: [
                   Checkbox(
-                    value: isAgreed, // Initially unchecked
+                    value: isAgreed, 
                     onChanged: (bool? newValue) {
                       // Handle checkbox state change
                       if (newValue != null) {
@@ -130,7 +128,7 @@ class SignupStep2Widget extends StatelessWidget {
                         //   );
                         // },
                         child: RichText(
-                          textAlign: TextAlign.center, // Align text to the center
+                          textAlign: TextAlign.center,
                           text: TextSpan(
                             children: [
                               TextSpan(
@@ -145,7 +143,7 @@ class SignupStep2Widget extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: tdNeonBlue,
-                                  decoration: TextDecoration.underline, // Add underline to the text
+                                  decoration: TextDecoration.underline, 
                                 ),
                               ),
                             ],
