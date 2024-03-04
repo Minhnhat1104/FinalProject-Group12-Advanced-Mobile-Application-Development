@@ -39,7 +39,7 @@ class LoginWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Username or email',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
+                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -51,7 +51,7 @@ class LoginWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
+                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -81,7 +81,7 @@ class LoginWidget extends StatelessWidget {
               ),
               Expanded(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Row(
                       children: [
