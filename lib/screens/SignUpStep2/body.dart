@@ -49,7 +49,7 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                 decoration: InputDecoration(
                   labelText: 'Fullname',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
+                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -60,7 +60,7 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                 decoration: InputDecoration(
                   labelText: 'Work email address',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
+                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -72,7 +72,7 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                 decoration: InputDecoration(
                   labelText: 'Password (8 or more characters)',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 220, 220, 220)),
+                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
