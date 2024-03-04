@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student_hub/model/selected_option.dart';
 import '../../model/signup_option_model.dart';
 import '../../constants/colors.dart';
 
@@ -17,46 +18,44 @@ class SignUpOptionItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
-        border: Border.all(color: tdNeonBlue), // Add border
+        border: Border.all(color: tdJordyBlue),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: ListTile(
-        onTap: () {
-          onToDoChanged(signupOption);
-        },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        tileColor: tdWhite,
-        leading: Radio( // Use Radio instead of Icon
-          value: signupOption,
-          groupValue: null, // Add your group value here if needed
-          onChanged: (value) {
-            onToDoChanged(signupOption);
-          },
-        ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Column(
           children: [
-            Text(
-              signupOption.optionText!,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 5),
             Row(
               children: [
-                const Icon( 
-                  Icons.calendar_today,
-                  color: Colors.grey,
-                  size: 16,
+                Icon(
+                  Icons.account_box,
+                  color: tdCornBlue,
+                  size: 30,
                 ),
-                const SizedBox(width: 8),
-                Container(
-                  margin: const EdgeInsets.only(top: 3),
+                Spacer(), 
+                Radio(
+                  value: signupOption,
+                  groupValue: SelectedOption.selectedOption,
+                  onChanged: (value) {
+                    onToDoChanged(signupOption);
+                    SelectedOption.selectedOption = signupOption;
+                  },
+                  fillColor:
+                    MaterialStateColor.resolveWith((states) => tdCornBlue), 
+                  activeColor: tdCornBlue,
+                ),
+              ],
+            ),
+            SizedBox(height: 5), 
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    signupOption.optionText!,
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                 ),
               ],
             ),

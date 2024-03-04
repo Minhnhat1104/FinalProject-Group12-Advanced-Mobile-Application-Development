@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/model/selected_option.dart';
 import 'package:student_hub/model/signup_option_model.dart';
-import 'package:student_hub/model/user_model.dart';
 import 'package:student_hub/screens/Login/index.dart';
 import 'package:student_hub/screens/SignUpStep1/signup_option_item.dart';
 
@@ -43,78 +43,70 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
                 ),
               ),
               SizedBox(height: 16.0),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: optionList.length,
-                  itemBuilder: (context, index) {
-                    final option = optionList[index];
-                    return SignUpOptionItem(
-                      signupOption: option,
-                      onToDoChanged: _handleToDoChange,
-                    );
-                  },
-                ),
+              ListView.builder(
+                shrinkWrap: true, 
+                itemCount: optionList.length,
+                itemBuilder: (context, index) {
+                  final option = optionList[index];
+                  return SignUpOptionItem(
+                    signupOption: option,
+                    onToDoChanged: _handleToDoChange,
+                  );
+                },
               ),
-              FractionallySizedBox( 
-                widthFactor: 1, 
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Logic to create account
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: tdNeonBlue, 
-                    minimumSize: Size(double.infinity, 50),
-                  ),
-                  child: Text(
-                    'Create account',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
+              SizedBox(height: 10.0), 
+              ElevatedButton(
+                onPressed: () {
+                  // Logic to create account
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: tdNeonBlue, 
+                  minimumSize: Size(double.infinity, 50),
+                ),
+                child: Text(
+                  'Create account',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
                   ),
                 ),
               ),
               SizedBox(height: 30.0),
-              Expanded(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          // Navigate to the login page
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LoginScreen()),
-                          );
-                        },
-                        child: RichText(
-                          textAlign: TextAlign.center, 
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "Already have an account? ",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black87,
-                                ),
-                              ),
-                              TextSpan(
-                                text: "Log in",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: tdNeonBlue,
-                                  decoration: TextDecoration.underline, 
-                                ),
-                              ),
-                            ],
+              Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Navigate to the login page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                    child: RichText(
+                      textAlign: TextAlign.center, 
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Already have an account? ",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black87,
+                            ),
                           ),
-                        ),
+                          TextSpan(
+                            text: "Log in",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: tdNeonBlue,
+                              decoration: TextDecoration.underline, 
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 8.0),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 8.0),
+                ],
               ),
             ],
           ),
@@ -123,9 +115,16 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
     );
   }
 
-  void _handleToDoChange(SignUpOption todo) {
-    setState(() {
-      todo.isDone = !todo.isDone;
-    });
-  }
+  void _handleToDoChange(SignUpOption optionChoice) {
+  setState(() {
+    if (optionChoice.isSelected) {
+      optionChoice.isSelected = false;
+      SelectedOption.selectedOption = null;
+    } else {
+      optionChoice.isSelected = true;
+      SelectedOption.selectedOption = optionChoice;
+    }
+  });
+}
+
 }

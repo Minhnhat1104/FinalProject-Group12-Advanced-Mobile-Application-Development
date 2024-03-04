@@ -1,12 +1,12 @@
 class SignUpOption {
   int id;
   String? optionText;
-  bool isDone;
+  bool isSelected;
 
   SignUpOption({
     required this.id,
     required this.optionText,
-    this.isDone = false,
+    this.isSelected = false,
   });
 
   static List<SignUpOption> optionList() {
