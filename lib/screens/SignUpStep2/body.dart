@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/company_model.dart';
+import 'package:student_hub/screens/Login/index.dart';
 
-class SignupStep2Widget extends StatelessWidget {
+class SignupStep2Widget extends StatefulWidget {
+  const SignupStep2Widget({Key? key}) : super(key: key);
+
+  @override
+  State<SignupStep2Widget> createState() => _SignupStep2WidgetState();
+}
+
+class _SignupStep2WidgetState extends State<SignupStep2Widget> {
   final TextEditingController fullnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -28,9 +36,9 @@ class SignupStep2Widget extends StatelessWidget {
                   child: Text(
                     'Sign up as Company',
                     style: TextStyle(
-                      fontSize: 20, 
+                      fontSize: 20,
                       fontWeight: FontWeight.w600,
-                      fontFamily: 'Roboto'
+                      fontFamily: 'Roboto',
                     ),
                   ),
                 ),
@@ -69,28 +77,32 @@ class SignupStep2Widget extends StatelessWidget {
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 18.0),
               Row(
                 children: [
                   Checkbox(
-                    value: isAgreed, 
+                    value: isAgreed,
                     onChanged: (bool? newValue) {
-                      // Handle checkbox state change
-                      if (newValue != null) {
-                        isAgreed = newValue;
-                      }
+                      setState(() {
+                        isAgreed = newValue ?? false;
+                      });
                     },
+                    side: BorderSide(color: tdNeonBlue),
+                    activeColor: tdNeonBlue,
                   ),
-                  SizedBox(width: 6.0),
+                  SizedBox(width: 10.0),
                   Text(
                     'Yes, I understand and agree to StudentHub',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black, // Text color of the label
+                ),
                   ),
                 ],
               ),
-              SizedBox(height: 14.0),
-              FractionallySizedBox( 
-                widthFactor: 1, 
+              SizedBox(height: 18.0),
+              FractionallySizedBox(
+                widthFactor: 1,
                 child: ElevatedButton(
                   onPressed: () {
                     String fullname = fullnameController.text;
@@ -100,7 +112,7 @@ class SignupStep2Widget extends StatelessWidget {
                     // Handle login logic
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: tdNeonBlue, 
+                    backgroundColor: tdNeonBlue,
                     minimumSize: Size(double.infinity, 50),
                   ),
                   child: Text(
@@ -119,14 +131,11 @@ class SignupStep2Widget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: GestureDetector(
-                        // onTap: () {
-                        //   // Navigate to the login page
-                        //   // Replace `LoginPage()` with the actual login page widget
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(builder: (context) => LoginScreen()),
-                        //   );
-                        // },
+                        onTap: () {
+                          // Navigate to the login page
+                          // Replace `LoginPage()` with the actual login page widget
+                          
+                        },
                         child: RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
@@ -143,7 +152,7 @@ class SignupStep2Widget extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: tdNeonBlue,
-                                  decoration: TextDecoration.underline, 
+                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                             ],
