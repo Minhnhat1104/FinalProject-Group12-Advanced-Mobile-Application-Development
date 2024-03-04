@@ -76,11 +76,6 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Navigate to the login page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
                     },
                     child: RichText(
                       textAlign: TextAlign.center, 
