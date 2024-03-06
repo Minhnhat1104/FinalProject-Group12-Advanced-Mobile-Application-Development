@@ -26,10 +26,9 @@ class LoginWidget extends StatelessWidget {
                   child: Text(
                     'Login with StudentHub',
                     style: TextStyle(
-                      fontSize: 20, 
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Roboto'
-                    ),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Roboto'),
                   ),
                 ),
               ),
@@ -39,7 +38,8 @@ class LoginWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Username or email',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -51,14 +51,15 @@ class LoginWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
               ),
               SizedBox(height: 30.0),
-              FractionallySizedBox( 
-                widthFactor: 0.7, 
+              FractionallySizedBox(
+                widthFactor: 0.7,
                 child: ElevatedButton(
                   onPressed: () {
                     String username = usernameController.text;
@@ -67,7 +68,7 @@ class LoginWidget extends StatelessWidget {
                     // Handle login logic
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: tdNeonBlue, 
+                    backgroundColor: tdNeonBlue,
                     minimumSize: Size(double.infinity, 50),
                   ),
                   child: Text(
@@ -98,7 +99,8 @@ class LoginWidget extends StatelessWidget {
                               fontSize: 16,
                               color: Colors.grey[500],
                             ),
-                            textAlign: TextAlign.center, // Align text to the center
+                            textAlign:
+                                TextAlign.center, // Align text to the center
                           ),
                         ),
                         Expanded(
@@ -108,7 +110,7 @@ class LoginWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 8.0), 
+                    SizedBox(height: 8.0),
                     Container(
                       margin: EdgeInsets.only(top: 12.0),
                       child: ElevatedButton(
@@ -116,14 +118,14 @@ class LoginWidget extends StatelessWidget {
                           // Handle sign-up button press
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[300], 
-                          minimumSize: Size(200, 50), 
+                          backgroundColor: Colors.grey[300],
+                          minimumSize: Size(200, 50),
                         ),
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
                             fontSize: 16,
-                            color: Colors.black87, 
+                            color: Colors.black87,
                           ),
                         ),
                       ),
