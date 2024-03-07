@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/widgets/drawer_nav_widget.dart';
 
 class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -22,7 +23,12 @@ class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: Icon(Icons.person, color: tdWhite),
-          onPressed: onUserIconPressed,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const UserSetting()),
+            );
+          },
         ),
       ],
     );

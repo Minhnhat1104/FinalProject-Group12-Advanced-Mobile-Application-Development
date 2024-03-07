@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/main.dart';
 import 'package:student_hub/model/user_model.dart';
 import 'package:student_hub/screens/Authentication/index.dart';
 import 'package:student_hub/screens/Home/index.dart';
@@ -72,6 +73,7 @@ class LoginWidget extends StatelessWidget {
                     String password = passwordController.text;
                     User user = User(username: username, password: password);
                     // Handle login logic
+                    logger.d('Log message with 2 methods');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: tdNeonBlue,

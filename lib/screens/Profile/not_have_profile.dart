@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
+import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class NotHaveProfile extends StatefulWidget {
   const NotHaveProfile({Key? key}) : super(key: key);
@@ -14,26 +15,30 @@ class _NotHaveProfileState extends State<NotHaveProfile> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 20),
-          Center(
-            child: Text(
-              'Build your product with high-skilled student',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    return Scaffold(
+      appBar: HeaderNavBar(),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20),
+            Center(
+              child: Text(
+                'Build your product with high-skilled student',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            'Tell us about your company and you will be on your way connect with high-skilled students',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-            textAlign: TextAlign.left,
-          ),
-          SizedBox(height: 16),
-          CompanyForm(formKey: _formKey)
-        ],
+            SizedBox(height: 20),
+            Text(
+              'Tell us about your company and you will be on your way connect with high-skilled students',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(height: 16),
+            CompanyForm(formKey: _formKey)
+          ],
+        ),
       ),
     );
   }

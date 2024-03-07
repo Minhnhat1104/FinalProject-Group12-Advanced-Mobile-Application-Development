@@ -21,7 +21,7 @@ class _ProfileInputCompanyState extends State<ProfileInputCompany> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: HeaderNavBar(),
-      drawer: DrawerNav(),
+      // drawer: DrawerNav(),
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height -
