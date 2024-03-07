@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/widgets/header_nav_widget.dart';
 
 /// Flutter code sample for [NavigationBar].
 
@@ -26,6 +27,7 @@ class _NavigationExampleState extends State<NavigationExample> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
+      appBar: HeaderNavBar(),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/screens/Profile/not_have_profile.dart';
+import 'package:student_hub/screens/Profile/profile_input.dart';
 
 class UserSetting extends StatelessWidget {
   const UserSetting({super.key});
@@ -31,6 +32,13 @@ class UserSetting extends StatelessWidget {
                   leading: Icon(Icons.person, color: tdWhite),
                   title:
                       Text("P R O F I L E", style: TextStyle(color: tdWhite)),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileInputCompany()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.settings, color: tdWhite),

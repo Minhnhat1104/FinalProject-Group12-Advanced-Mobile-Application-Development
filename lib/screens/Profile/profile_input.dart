@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/constants/style.dart';
 import 'package:student_hub/widgets/drawer_nav_widget.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
@@ -23,6 +24,7 @@ class _ProfileInputCompanyState extends State<ProfileInputCompany> {
       appBar: HeaderNavBar(),
       // drawer: DrawerNav(),
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
         child: SizedBox(
           height: MediaQuery.of(context).size.height -
               MediaQuery.of(context).padding.top,
