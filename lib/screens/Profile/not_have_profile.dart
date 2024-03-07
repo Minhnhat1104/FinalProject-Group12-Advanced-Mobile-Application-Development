@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
 import 'package:student_hub/screens/Dashboard/dashboard_screen.dart';
+import 'package:student_hub/screens/Welcome/index.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class NotHaveProfile extends StatefulWidget {
@@ -127,8 +128,7 @@ class CompanyForm extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const NavigationBarApp()),
+                      MaterialPageRoute(builder: (context) => const Welcome()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
