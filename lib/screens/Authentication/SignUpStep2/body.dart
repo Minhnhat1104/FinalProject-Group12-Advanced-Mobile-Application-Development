@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/company_model.dart';
-import 'package:student_hub/screens/Login/index.dart';
+import 'package:student_hub/screens/Authentication/Login/index.dart';
 
 class SignupStep2Widget extends StatefulWidget {
   const SignupStep2Widget({Key? key}) : super(key: key);
@@ -49,7 +49,8 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                 decoration: InputDecoration(
                   labelText: 'Fullname',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -60,7 +61,8 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                 decoration: InputDecoration(
                   labelText: 'Work email address',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -72,7 +74,8 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                 decoration: InputDecoration(
                   labelText: 'Password (8 or more characters)',
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 182, 182, 182)),
                   ),
                   labelStyle: TextStyle(color: Colors.grey[500]),
                 ),
@@ -94,9 +97,9 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                   Text(
                     'Yes, I understand and agree to StudentHub',
                     style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black, // Text color of the label
-                ),
+                      fontSize: 16,
+                      color: Colors.black, // Text color of the label
+                    ),
                   ),
                 ],
               ),
@@ -108,7 +111,8 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                     String fullname = fullnameController.text;
                     String email = emailController.text;
                     String password = passwordController.text;
-                    Company company = Company(fullname: fullname, email: email, password: password);
+                    Company company = Company(
+                        fullname: fullname, email: email, password: password);
                     // Handle login logic
                   },
                   style: ElevatedButton.styleFrom(
@@ -134,7 +138,6 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                         onTap: () {
                           // Navigate to the login page
                           // Replace `LoginPage()` with the actual login page widget
-                          
                         },
                         child: RichText(
                           textAlign: TextAlign.center,

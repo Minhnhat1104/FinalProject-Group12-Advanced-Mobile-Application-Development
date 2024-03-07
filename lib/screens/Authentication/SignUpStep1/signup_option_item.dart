@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/model/selected_option.dart';
-import '../../model/signup_option_model.dart';
-import '../../constants/colors.dart';
+import '../../../model/signup_option_model.dart';
+import '../../../constants/colors.dart';
 
 class SignUpOptionItem extends StatelessWidget {
   final SignUpOption signupOption;
@@ -32,7 +32,7 @@ class SignUpOptionItem extends StatelessWidget {
                   color: tdCornBlue,
                   size: 30,
                 ),
-                Spacer(), 
+                Spacer(),
                 Radio(
                   value: signupOption,
                   groupValue: SelectedOption.selectedOption,
@@ -41,12 +41,12 @@ class SignUpOptionItem extends StatelessWidget {
                     SelectedOption.selectedOption = signupOption;
                   },
                   fillColor:
-                    MaterialStateColor.resolveWith((states) => tdCornBlue), 
+                      MaterialStateColor.resolveWith((states) => tdCornBlue),
                   activeColor: tdCornBlue,
                 ),
               ],
             ),
-            SizedBox(height: 5), 
+            SizedBox(height: 5),
             Row(
               children: [
                 Expanded(

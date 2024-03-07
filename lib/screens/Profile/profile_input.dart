@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/widgets/drawer_nav_widget.dart';
+import 'package:student_hub/widgets/header_nav_widget.dart';
 
 enum SingingCharacter { only }
 
@@ -17,78 +19,82 @@ class _ProfileInputCompanyState extends State<ProfileInputCompany> {
   SingingCharacter? _character = SingingCharacter.only;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height -
-            MediaQuery.of(context).padding.top,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100,
-              child: Center(
-                  child: Text(
-                'Welcome to Student Hub',
-                style: TextStyle(fontSize: 20),
-              )),
-            ),
-            TextFielItem(
-                label: "Company name", nameController: companyNameController),
-            SizedBox(height: 20),
-            TextFielItem(label: "Website", nameController: websiteController),
-            SizedBox(height: 20),
-            TextFielItem(
-              label: "Description",
-              nameController: descriptionController,
-              maxLines: 3,
-            ),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(height: 20),
-              Text("How many people are in your company"),
-              ListTile(
-                title: const Text("It's just me"),
-                leading: Radio<SingingCharacter>(
-                  value: SingingCharacter.only,
-                  groupValue: _character,
-                  onChanged: (SingingCharacter? value) {
-                    setState(() {
-                      _character = value;
-                    });
-                  },
-                ),
+    return Scaffold(
+      appBar: HeaderNavBar(),
+      drawer: DrawerNav(),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height -
+              MediaQuery.of(context).padding.top,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 100,
+                child: Center(
+                    child: Text(
+                  'Welcome to Student Hub',
+                  style: TextStyle(fontSize: 20),
+                )),
               ),
-            ]),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: tdNeonBlue,
-                        fixedSize: Size(150, 40),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8))),
-                    onPressed: () {},
-                    child: Text(
-                      'Edit',
-                      style: TextStyle(color: tdWhite, fontSize: 18),
-                    )),
-                SizedBox(width: 20),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: tdNeonBlue,
-                        fixedSize: Size(150, 40),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8))),
-                    onPressed: () {},
-                    child: Text(
-                      'Cancel',
-                      style: TextStyle(color: tdWhite, fontSize: 18),
-                    )),
-              ],
-            )
-          ],
+              TextFielItem(
+                  label: "Company name", nameController: companyNameController),
+              SizedBox(height: 20),
+              TextFielItem(label: "Website", nameController: websiteController),
+              SizedBox(height: 20),
+              TextFielItem(
+                label: "Description",
+                nameController: descriptionController,
+                maxLines: 3,
+              ),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                SizedBox(height: 20),
+                Text("How many people are in your company"),
+                ListTile(
+                  title: const Text("It's just me"),
+                  leading: Radio<SingingCharacter>(
+                    value: SingingCharacter.only,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter? value) {
+                      setState(() {
+                        _character = value;
+                      });
+                    },
+                  ),
+                ),
+              ]),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: tdNeonBlue,
+                          fixedSize: Size(150, 40),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                      onPressed: () {},
+                      child: Text(
+                        'Edit',
+                        style: TextStyle(color: tdWhite, fontSize: 18),
+                      )),
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: tdNeonBlue,
+                          fixedSize: Size(150, 40),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                      onPressed: () {},
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(color: tdWhite, fontSize: 18),
+                      )),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

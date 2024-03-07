@@ -3,7 +3,7 @@ import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
 import 'package:student_hub/screens/Dashboard/dashboard_screen.dart';
 import 'package:student_hub/screens/Home/index.dart';
-import 'package:student_hub/screens/Login/index.dart';
+import 'package:student_hub/screens/Authentication/Login/index.dart';
 import 'package:student_hub/screens/Profile/profile_input.dart';
 import 'package:student_hub/widgets/drawer_nav_widget.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
@@ -19,19 +19,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: HeaderNavBar(),
-            body: Theme(
-              data: ThemeData.light().copyWith(
-                colorScheme: const ColorScheme.light(
-                  primary: tdNeonBlue,
-                ),
-              ),
-              child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
-                  child: NavigationBarApp()),
-            ),
-            drawer: DrawerNav() // Set LoginScreen as the home screen
-            ));
+        theme: ThemeData(
+          primaryColor: tdNeonBlue,
+        ),
+        home: Home());
   }
 }

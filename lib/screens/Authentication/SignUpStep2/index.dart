@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:student_hub/screens/SignUpStep2/body.dart';
+import 'package:student_hub/screens/Authentication/SignUpStep2/body.dart';
 
 void main() {
   runApp(SignupStep2Screen());

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/user_model.dart';
+import 'package:student_hub/screens/Authentication/index.dart';
+import 'package:student_hub/screens/Home/index.dart';
+import 'package:student_hub/screens/Authentication/SignUpStep1/index.dart';
 
 class LoginWidget extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final Function(authWidgetKey) updateKey;
+
+  LoginWidget({required this.updateKey});
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +122,7 @@ class LoginWidget extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           // Handle sign-up button press
+                          updateKey(authWidgetKey.signupStep1);
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.grey[300],

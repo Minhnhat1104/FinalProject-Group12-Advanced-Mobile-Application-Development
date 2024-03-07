@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/selected_option.dart';
 import 'package:student_hub/model/signup_option_model.dart';
-import 'package:student_hub/screens/Login/index.dart';
-import 'package:student_hub/screens/SignUpStep1/signup_option_item.dart';
+import 'package:student_hub/screens/Authentication/Login/index.dart';
+import 'package:student_hub/screens/Authentication/SignUpStep1/signup_option_item.dart';
+import 'package:student_hub/screens/Authentication/index.dart';
 
 class SignupStep1Widget extends StatefulWidget {
-  const SignupStep1Widget({Key? key}) : super(key: key);
+  final Function(authWidgetKey) updateKey;
+
+  SignupStep1Widget({required this.updateKey});
 
   @override
-  State<SignupStep1Widget> createState() => _SignupStep1WidgetState();
+  State<SignupStep1Widget> createState() =>
+      _SignupStep1WidgetState(updateKey: updateKey);
 }
 
 class _SignupStep1WidgetState extends State<SignupStep1Widget> {
   final List<SignUpOption> optionList = SignUpOption.optionList();
+  final Function(authWidgetKey) updateKey;
+
+  _SignupStep1WidgetState({required this.updateKey});
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +42,15 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
                   child: Text(
                     'Join as company or Student',
                     style: TextStyle(
-                      fontSize: 20, 
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Roboto'
-                    ),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Roboto'),
                   ),
                 ),
               ),
               SizedBox(height: 16.0),
               ListView.builder(
-                shrinkWrap: true, 
+                shrinkWrap: true,
                 itemCount: optionList.length,
                 itemBuilder: (context, index) {
                   final option = optionList[index];
@@ -54,13 +60,14 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
                   );
                 },
               ),
-              SizedBox(height: 10.0), 
+              SizedBox(height: 10.0),
               ElevatedButton(
                 onPressed: () {
                   // Logic to create account
+                  updateKey(authWidgetKey.signupStep2);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: tdNeonBlue, 
+                  backgroundColor: tdNeonBlue,
                   minimumSize: Size(double.infinity, 50),
                 ),
                 child: Text(
@@ -75,10 +82,9 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
               Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                    },
+                    onTap: () {},
                     child: RichText(
-                      textAlign: TextAlign.center, 
+                      textAlign: TextAlign.center,
                       text: TextSpan(
                         children: [
                           TextSpan(
@@ -93,7 +99,7 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
                             style: TextStyle(
                               fontSize: 16,
                               color: tdNeonBlue,
-                              decoration: TextDecoration.underline, 
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ],
@@ -111,15 +117,14 @@ class _SignupStep1WidgetState extends State<SignupStep1Widget> {
   }
 
   void _handleToDoChange(SignUpOption optionChoice) {
-  setState(() {
-    if (optionChoice.isSelected) {
-      optionChoice.isSelected = false;
-      SelectedOption.selectedOption = null;
-    } else {
-      optionChoice.isSelected = true;
-      SelectedOption.selectedOption = optionChoice;
-    }
-  });
-}
-
+    setState(() {
+      if (optionChoice.isSelected) {
+        optionChoice.isSelected = false;
+        SelectedOption.selectedOption = null;
+      } else {
+        optionChoice.isSelected = true;
+        SelectedOption.selectedOption = optionChoice;
+      }
+    });
+  }
 }
