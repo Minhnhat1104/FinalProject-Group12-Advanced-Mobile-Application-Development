@@ -19,27 +19,31 @@ class _NotHaveProfileState extends State<NotHaveProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: HeaderNavBar(),
-      body: Container(
+      body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: APP_PADDING_X),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Center(
-              child: Text(
-                'Build your product with high-skilled student',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height -
+              MediaQuery.of(context).padding.top,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Center(
+                child: Text(
+                  'Build your product with high-skilled student',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Tell us about your company and you will be on your way connect with high-skilled students',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-              textAlign: TextAlign.left,
-            ),
-            SizedBox(height: 16),
-            CompanyForm(formKey: _formKey)
-          ],
+              SizedBox(height: 20),
+              Text(
+                'Tell us about your company and you will be on your way connect with high-skilled students',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(height: 16),
+              CompanyForm(formKey: _formKey)
+            ],
+          ),
         ),
       ),
     );
@@ -121,10 +125,6 @@ class CompanyForm extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
-                  child: Text(
-                    'Contunue',
-                    style: TextStyle(color: tdWhite),
-                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -136,6 +136,10 @@ class CompanyForm extends StatelessWidget {
                       fixedSize: Size(200, 40),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8))),
+                  child: Text(
+                    'Contunue',
+                    style: TextStyle(color: tdWhite),
+                  ),
                 ),
               ),
             ),
