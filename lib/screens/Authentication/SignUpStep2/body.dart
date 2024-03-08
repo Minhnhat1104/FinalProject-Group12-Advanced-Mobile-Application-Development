@@ -93,7 +93,6 @@ class _SignupStep2WidgetState extends State<SignupStep2Widget> {
                     side: BorderSide(color: tdNeonBlue),
                     activeColor: tdNeonBlue,
                   ),
-                  SizedBox(width: 10.0),
                   Text(
                     'Yes, I understand and agree to StudentHub',
                     style: TextStyle(
