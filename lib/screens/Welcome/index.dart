@@ -38,8 +38,7 @@ class Welcome extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const NavigationBarApp()),
+                  MaterialPageRoute(builder: (context) => const Dashboard()),
                 );
               },
               style: ElevatedButton.styleFrom(

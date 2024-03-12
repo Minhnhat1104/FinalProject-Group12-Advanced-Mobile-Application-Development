@@ -4,8 +4,8 @@ import 'package:student_hub/widgets/header_nav_widget.dart';
 
 /// Flutter code sample for [NavigationBar].
 
-class NavigationBarApp extends StatelessWidget {
-  const NavigationBarApp({super.key});
+class Dashboard extends StatelessWidget {
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,27 +34,38 @@ class _NavigationExampleState extends State<NavigationExample> {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Colors.amber,
+        // indicatorColor: tdNeonBlue,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.web),
+            selectedIcon: Icon(
+              Icons.web,
+              color: tdNeonBlue,
+            ),
             icon: Icon(Icons.web),
             label: 'Project',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.calendar_month),
+            selectedIcon: Icon(Icons.calendar_month, color: tdNeonBlue),
             icon: Icon(Icons.calendar_month),
             label: 'Dashboard',
           ),
           NavigationDestination(
+            selectedIcon: Badge(
+              label: Text('2'),
+              child: Icon(Icons.messenger_sharp, color: tdNeonBlue),
+            ),
             icon: Badge(
               label: Text('2'),
-              child: Icon(Icons.messenger_sharp),
+              child: Icon(
+                Icons.messenger_sharp,
+              ),
             ),
             label: 'Messages',
           ),
           NavigationDestination(
+            selectedIcon: Badge(
+                child: Icon(Icons.notifications_sharp, color: tdNeonBlue)),
             icon: Badge(child: Icon(Icons.notifications_sharp)),
             label: 'Notifications',
           ),
