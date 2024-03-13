@@ -89,7 +89,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         // Dashboard page
         SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height, // Set a finite height
+            height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 SizedBox(height: 10),
@@ -125,7 +125,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                 ),
                 // New navigation bar for dashboard views
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16), // Adjust horizontal padding as needed
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -137,21 +137,22 @@ class _NavigationExampleState extends State<NavigationExample> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: currentDashboardIndex == 0 ? tdNeonBlue : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(vertical: 16), // Adjust padding as needed
+                            padding: EdgeInsets.symmetric(vertical: 16),
                           ),
                           child: Text(
                             'All Projects',
                             style: TextStyle(
-                              color: Colors.white, // Change text color to white
-                              fontWeight: FontWeight.w500, // Add font weight
+                              color: currentDashboardIndex == 0 ? tdWhite : tdNeonBlue,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 8), // Add space between buttons
+                      SizedBox(width: 8),
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
@@ -160,21 +161,22 @@ class _NavigationExampleState extends State<NavigationExample> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: currentDashboardIndex == 1 ? tdNeonBlue : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(vertical: 16), // Adjust padding as needed
+                            padding: EdgeInsets.symmetric(vertical: 16),
                           ),
                           child: Text(
                             'Working',
                             style: TextStyle(
-                              color: Colors.white, // Change text color to white
-                              fontWeight: FontWeight.w500, // Add font weight
+                              color: currentDashboardIndex == 1 ? tdWhite : tdNeonBlue,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 8), // Add space between buttons
+                      SizedBox(width: 8),
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
@@ -183,16 +185,17 @@ class _NavigationExampleState extends State<NavigationExample> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: currentDashboardIndex == 2 ? tdNeonBlue : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(vertical: 16), // Adjust padding as needed
+                            padding: EdgeInsets.symmetric(vertical: 16),
                           ),
                           child: Text(
                             'Archived',
                             style: TextStyle(
-                              color: Colors.white, // Change text color to white
-                              fontWeight: FontWeight.w500, // Add font weight
+                              color: currentDashboardIndex == 2 ? tdWhite : tdNeonBlue,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
@@ -203,12 +206,12 @@ class _NavigationExampleState extends State<NavigationExample> {
                 if (currentDashboardIndex == 0) ...[
                   Expanded(
                     child: ListView.builder(
-                      itemCount: 50, // Adjust the number of projects as needed
+                      itemCount: 50, 
                       itemBuilder: (context, index) {
                         return Card(
                           margin: EdgeInsets.all(8),
                           child: Padding(
-                            padding: EdgeInsets.all(8),
+                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -218,33 +221,36 @@ class _NavigationExampleState extends State<NavigationExample> {
                                       // Change Expanded to Flexible
                                       flex: 1,
                                       child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
+                                          Text(
+                                            'Senior Frontend Developer (Fintech)',
+                                            style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                          ),
                                           IconButton(
-                                            icon: Icon(Icons.more_vert),
+                                            icon: Icon(Icons.more_horiz),
+                                            color: tdNeonBlue,
                                             onPressed: () {
                                               // Handle editing or showing more details
                                             },
-                                          ),
-                                          Text(
-                                            'Senior Frontend Developer (Fintech)',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
                                           ),
                                         ],
                                       ),
                                     ),
                                   ],
                                 ),
+                                Text(
+                                  'Created 5 days ago',
+                                  style: TextStyle(color: tdGrey),
+                                ),
                                 SizedBox(height: 8),
                                 Text(
                                   'Students are looking for',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 Text(
-                                  '- Clear expectation about your project or deliverables',
-                                  style: TextStyle(fontSize: 12),
+                                  '    · Clear expectation about your project or deliverables',
                                 ),
-                                SizedBox(height: 8),
+                                SizedBox(height: 30),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -254,7 +260,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text('2'),
-                                        Text('Hired'),
+                                        Text('Proposals'),
                                       ],
                                     ),
                                     Column(
@@ -262,18 +268,20 @@ class _NavigationExampleState extends State<NavigationExample> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text('8'),
-                                        Text('Message'),
+                                        Text('Messages'),
                                       ],
                                     ),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('2 Proposals'),
+                                        Text('2'),
+                                        Text('Hired'),
                                       ],
                                     ),
                                   ],
                                 ),
+                                SizedBox(height: 12),
                               ],
                             ),
                           ),

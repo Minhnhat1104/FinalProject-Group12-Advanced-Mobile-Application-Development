@@ -6,6 +6,8 @@ const Color tdJordyBlue = Color(0xFF9BB1FF);
 const Color tdPeriBlue = Color(0xFFBFD7FF);
 const Color tdCyanBlue = Color(0xFFE2FDFF);
 
+const Color tdGreen = Color.fromARGB(255, 22, 125, 77);
+
 const Color tdText = Color(0xFF3A3A3A);
 
 const Color tdBlack = Color(0x0000000);
