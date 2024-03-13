@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
-/// Flutter code sample for [NavigationBar].
-
 class Dashboard2 extends StatelessWidget {
   const Dashboard2({super.key});
 
@@ -22,6 +20,7 @@ class NavigationExample extends StatefulWidget {
 
 class _NavigationExampleState extends State<NavigationExample> {
   int currentPageIndex = 1;
+  int currentDashboardIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +31,10 @@ class _NavigationExampleState extends State<NavigationExample> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
+            currentDashboardIndex =
+                0; 
           });
         },
-        // indicatorColor: tdNeonBlue,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
@@ -72,7 +72,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         ],
       ),
       body: <Widget>[
-        /// Home page
+        // Home page
         Card(
           shadowColor: Colors.transparent,
           margin: const EdgeInsets.all(8.0),
@@ -86,45 +86,211 @@ class _NavigationExampleState extends State<NavigationExample> {
           ),
         ),
 
+        // Dashboard page
         SingleChildScrollView(
-          child: SizedBox(
-              child: Column(
-            children: [
-              SizedBox(height: 10),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Your projects',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: tdNeonBlue,
-                        fixedSize: Size(150, 30),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+          child: Container(
+            height: MediaQuery.of(context).size.height, // Set a finite height
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 38.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Your projects',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: tdNeonBlue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          'Post a project',
+                          style: TextStyle(
+                            color: tdWhite,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        'Post a job',
-                        style: TextStyle(
-                          color: tdWhite,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              )
-            ],
-          )),
+                // New navigation bar for dashboard views
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16), // Adjust horizontal padding as needed
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              currentDashboardIndex = 0;
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: EdgeInsets.symmetric(vertical: 16), // Adjust padding as needed
+                          ),
+                          child: Text(
+                            'All Projects',
+                            style: TextStyle(
+                              color: Colors.white, // Change text color to white
+                              fontWeight: FontWeight.w500, // Add font weight
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8), // Add space between buttons
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              currentDashboardIndex = 1;
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: EdgeInsets.symmetric(vertical: 16), // Adjust padding as needed
+                          ),
+                          child: Text(
+                            'Working',
+                            style: TextStyle(
+                              color: Colors.white, // Change text color to white
+                              fontWeight: FontWeight.w500, // Add font weight
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8), // Add space between buttons
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              currentDashboardIndex = 2;
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: EdgeInsets.symmetric(vertical: 16), // Adjust padding as needed
+                          ),
+                          child: Text(
+                            'Archived',
+                            style: TextStyle(
+                              color: Colors.white, // Change text color to white
+                              fontWeight: FontWeight.w500, // Add font weight
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (currentDashboardIndex == 0) ...[
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: 50, // Adjust the number of projects as needed
+                      itemBuilder: (context, index) {
+                        return Card(
+                          margin: EdgeInsets.all(8),
+                          child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Flexible(
+                                      // Change Expanded to Flexible
+                                      flex: 1,
+                                      child: Row(
+                                        children: [
+                                          IconButton(
+                                            icon: Icon(Icons.more_vert),
+                                            onPressed: () {
+                                              // Handle editing or showing more details
+                                            },
+                                          ),
+                                          Text(
+                                            'Senior Frontend Developer (Fintech)',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Students are looking for',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  '- Clear expectation about your project or deliverables',
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                                SizedBox(height: 8),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('2'),
+                                        Text('Hired'),
+                                      ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('8'),
+                                        Text('Message'),
+                                      ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('2 Proposals'),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ] else if (currentDashboardIndex == 1) ...[
+                  Text('Working'),
+                ] else if (currentDashboardIndex == 2) ...[
+                  Text('Archived'),
+                ],
+              ],
+            ),
+          ),
         ),
-
-        /// Messages page
+        // Messages page
         ListView.builder(
           reverse: true,
           itemCount: 2,
@@ -166,7 +332,7 @@ class _NavigationExampleState extends State<NavigationExample> {
           },
         ),
 
-        /// Notifications page
+        // Notifications page
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(
@@ -192,5 +358,3 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 }
-
-
