@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/screens/BrowseProject/ProjectList/index.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 /// Flutter code sample for [NavigationBar].
@@ -78,10 +79,7 @@ class _NavigationExampleState extends State<NavigationExample> {
           margin: const EdgeInsets.all(8.0),
           child: SizedBox.expand(
             child: Center(
-              child: Text(
-                'Project page',
-                style: theme.textTheme.titleLarge,
-              ),
+              child: ProjectList(),
             ),
           ),
         ),

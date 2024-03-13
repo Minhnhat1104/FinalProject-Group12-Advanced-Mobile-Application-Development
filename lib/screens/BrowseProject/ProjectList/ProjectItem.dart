@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/screens/BrowseProject/ProjectDetail/index.dart';
 
 class ProjectItem extends StatelessWidget {
   ProjectItem({
@@ -32,12 +33,21 @@ class ProjectItem extends StatelessWidget {
                         fontWeight: FontWeight.normal,
                         color: tdGrey),
                   ),
-                  Text(
-                    'Senior frontend developer (Fintech)',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.green),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProjectDetail()),
+                      );
+                    },
+                    child: Text(
+                      'Senior frontend developer (Fintech)',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.green),
+                    ),
                   ),
                   Text(
                     'Time: 1-3 months, 6 students needed',
@@ -63,8 +73,8 @@ class ProjectItem extends StatelessWidget {
                             color: Colors.black,
                             size: 8.0,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 8),
+                          SizedBox(width: 8),
+                          Flexible(
                             child: Text(_title,
                                 style: TextStyle(
                                   fontSize: 16,

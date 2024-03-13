@@ -17,25 +17,22 @@ class ProjectList extends StatefulWidget {
 class _ProjectListState extends State<ProjectList> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: HeaderNavBar(),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(
-            left: APP_PADDING_X, right: APP_PADDING_X, top: APP_PADDING_X),
-        child: Column(
-          children: [
-            Toolbar(),
-            Container(
-              margin: EdgeInsets.only(top: 16),
-              child: Column(children: [
-                ProjectItem(),
-                ProjectItem(),
-                ProjectItem(),
-                ProjectItem()
-              ]),
-            )
-          ],
-        ),
+    return SingleChildScrollView(
+      padding: EdgeInsets.only(
+          left: APP_PADDING_X, right: APP_PADDING_X, top: APP_PADDING_X),
+      child: Column(
+        children: [
+          Toolbar(),
+          Container(
+            margin: EdgeInsets.only(top: 16),
+            child: Column(children: [
+              ProjectItem(),
+              ProjectItem(),
+              ProjectItem(),
+              ProjectItem()
+            ]),
+          )
+        ],
       ),
     );
   }

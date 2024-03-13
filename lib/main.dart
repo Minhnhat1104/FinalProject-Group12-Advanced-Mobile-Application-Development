@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
+import 'package:student_hub/screens/BrowseProject/ProjectDetail/index.dart';
 import 'package:student_hub/screens/BrowseProject/ProjectList/index.dart';
 import 'package:student_hub/screens/Dashboard/dashboard_screen.dart';
 import 'package:student_hub/screens/Home/index.dart';
