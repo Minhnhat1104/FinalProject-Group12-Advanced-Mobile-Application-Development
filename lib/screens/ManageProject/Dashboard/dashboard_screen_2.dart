@@ -21,7 +21,7 @@ class NavigationExample extends StatefulWidget {
 }
 
 class _NavigationExampleState extends State<NavigationExample> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -91,19 +91,23 @@ class _NavigationExampleState extends State<NavigationExample> {
               child: Column(
             children: [
               SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Your jobs',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  ElevatedButton(
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Your projects',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: tdNeonBlue,
-                          fixedSize: Size(150, 30),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
+                        backgroundColor: tdNeonBlue,
+                        fixedSize: Size(150, 30),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
                       onPressed: () {},
                       child: Text(
                         'Post a job',
@@ -111,8 +115,10 @@ class _NavigationExampleState extends State<NavigationExample> {
                           color: tdWhite,
                           fontSize: 18,
                         ),
-                      )),
-                ],
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           )),
@@ -186,3 +192,5 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 }
+
+
