@@ -513,18 +513,6 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 
-  ProjectPostingModel copyProjectWithStatus(ProjectPostingModel originalProject, String projectStatus) {
-  return ProjectPostingModel(
-    title: originalProject.title,
-    createdDate: originalProject.createdDate,
-    requirements: List.from(originalProject.requirements),
-    proposals: originalProject.proposals,
-    messages: originalProject.messages,
-    hired: originalProject.hired,
-    projectStatus: projectStatus, 
-  );
-}
-
   void startWorkingProject(ProjectPostingModel posting) {
     setState(() {
       if (posting.proposals == 0 && posting.projectStatus != "Working") {
