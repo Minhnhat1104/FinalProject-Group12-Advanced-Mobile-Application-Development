@@ -355,8 +355,90 @@ class _NavigationExampleState extends State<NavigationExample> {
                     ),
                   ),
                 ] else if (currentDashboardIndex == 1) ...[
-                  Text('Working'),
-                ] else if (currentDashboardIndex == 2) ...[
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: workingProjectPostings.length,
+                        itemBuilder: (context, index) {
+                          ProjectPostingModel posting = workingProjectPostings[index];
+                          return Card(
+                            margin: EdgeInsets.all(8),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Flexible(
+                                        flex: 1,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              posting.title,
+                                              style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                            ),
+                                            IconButton(
+                                              icon: Icon(Icons.more_horiz),
+                                              color: tdNeonBlue,
+                                              onPressed: () {
+                                                // Show options for working project
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    posting.createdDate,
+                                    style: TextStyle(color: tdGrey),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'Students are looking for',
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: posting.requirements.map((requirement) => Text('       • $requirement')).toList(),
+                                  ),
+                                  SizedBox(height: 30),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('${posting.proposals}'),
+                                          Text('Proposals'),
+                                        ],
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('${posting.messages}'),
+                                          Text('Messages'),
+                                        ],
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('${posting.hired}'),
+                                          Text('Hired'),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 12),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ] else if (currentDashboardIndex == 2) ...[
                   Text('Archived'),
                 ],
               ],
@@ -431,14 +513,49 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 
+  ProjectPostingModel copyProjectWithStatus(ProjectPostingModel originalProject, String projectStatus) {
+  return ProjectPostingModel(
+    title: originalProject.title,
+    createdDate: originalProject.createdDate,
+    requirements: List.from(originalProject.requirements),
+    proposals: originalProject.proposals,
+    messages: originalProject.messages,
+    hired: originalProject.hired,
+    projectStatus: projectStatus, 
+  );
+}
+
   void startWorkingProject(ProjectPostingModel posting) {
     setState(() {
-      // Remove the selected project from the list of all projects
-      projectPostings.remove(posting);
-      // Add the selected project to the list of working projects
-      workingProjectPostings.add(posting);
-      // Switch to the "Working" page
-      currentDashboardIndex = 1;
+      if (posting.proposals == 0 && posting.projectStatus != "Working") {
+        posting.projectStatus = 'Working';
+        workingProjectPostings.add(posting);
+        currentDashboardIndex = 1;
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Row(
+                children: [
+                  Icon(Icons.warning, color: Colors.orange),
+                  SizedBox(width: 8),
+                  Text('Cannot Start Working'),
+                ],
+              ),
+              content: Text('This project still has proposals or is already being worked on. You cannot start working on it.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
     });
   }
 }

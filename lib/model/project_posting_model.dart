@@ -5,6 +5,7 @@ class ProjectPostingModel {
   final int proposals;
   final int messages;
   final int hired;
+  String projectStatus;
 
   ProjectPostingModel({
     required this.title,
@@ -13,7 +14,12 @@ class ProjectPostingModel {
     required this.proposals,
     required this.messages,
     required this.hired,
+    required this.projectStatus,
   });
+
+  setProjectStatus(String status) {
+    this.projectStatus = status;
+  }
 }
 
 List<ProjectPostingModel> projectPostings = [
@@ -24,6 +30,7 @@ List<ProjectPostingModel> projectPostings = [
     proposals: 0,
     messages: 8,
     hired: 2,
+    projectStatus: 'Hiring', 
   ),
   ProjectPostingModel(
     title: 'Senior Frontend Developer (Fintech)',
@@ -32,6 +39,7 @@ List<ProjectPostingModel> projectPostings = [
     proposals: 2,
     messages: 8,
     hired: 2,
+    projectStatus: 'Hiring', 
   ),
   ProjectPostingModel(
     title: 'Senior Frontend Developer (Fintech)',
@@ -40,5 +48,6 @@ List<ProjectPostingModel> projectPostings = [
     proposals: 2,
     messages: 8,
     hired: 2,
+    projectStatus: 'Hiring', 
   ),
 ];
