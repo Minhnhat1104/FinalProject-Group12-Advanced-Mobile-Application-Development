@@ -16,8 +16,7 @@ class ProjectPostingModel {
   });
 }
 
-// Define a list of job postings
-List<ProjectPostingModel> jobPostings = [
+List<ProjectPostingModel> projectPostings = [
   ProjectPostingModel(
     title: 'Senior Frontend Developer (Fintech)',
     createdDate: 'Created 5 days ago',
@@ -42,5 +41,4 @@ List<ProjectPostingModel> jobPostings = [
     messages: 8,
     hired: 2,
   ),
-  // Add more job postings as needed
 ];
