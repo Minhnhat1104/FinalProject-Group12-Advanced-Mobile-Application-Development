@@ -7,6 +7,7 @@ import 'package:student_hub/screens/Dashboard/dashboard_screen.dart';
 import 'package:student_hub/screens/Home/index.dart';
 import 'package:student_hub/screens/Authentication/Login/index.dart';
 import 'package:student_hub/screens/ManageProject/Dashboard/dashboard_screen_2.dart';
+import 'package:student_hub/screens/ManageProject/ProjectDetail/project_detail_screen.dart';
 import 'package:student_hub/screens/Profile/profile_input.dart';
 import 'package:student_hub/widgets/drawer_nav_widget.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
@@ -29,6 +30,6 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: tdNeonBlue,
         ),
-        home: Dashboard2());
+        home: ProjectDetail());
   }
 }

@@ -3,8 +3,8 @@ import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/project_posting_model.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
-class Dashboard2 extends StatelessWidget {
-  const Dashboard2({super.key});
+class ProjectDetail extends StatelessWidget {
+  const ProjectDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
-            currentDashboardIndex =
-                0; 
+            currentDashboardIndex = 0; 
           });
         },
         selectedIndex: currentPageIndex,
@@ -292,7 +291,6 @@ class _NavigationExampleState extends State<NavigationExample> {
                                                           onTap: () {
                                                             // Handle start working action
                                                             Navigator.pop(context);
-                                                            startWorkingProject(posting);
                                                           },
                                                         ),
                                                       ],
@@ -513,37 +511,4 @@ class _NavigationExampleState extends State<NavigationExample> {
     );
   }
 
-  void startWorkingProject(ProjectPostingModel posting) {
-    setState(() {
-      if (posting.proposals == 0 && posting.projectStatus != "Working") {
-        posting.projectStatus = 'Working';
-        workingProjectPostings.add(posting);
-        currentDashboardIndex = 1;
-      } else {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Row(
-                children: [
-                  Icon(Icons.warning, color: Colors.orange),
-                  SizedBox(width: 8),
-                  Text('Cannot Start Working'),
-                ],
-              ),
-              content: Text('This project still has proposals or is already being worked on. You cannot start working on it.'),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    });
-  }
 }
