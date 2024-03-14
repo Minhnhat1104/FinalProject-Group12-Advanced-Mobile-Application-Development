@@ -22,6 +22,7 @@ class NavigationExample extends StatefulWidget {
 class _NavigationExampleState extends State<NavigationExample> {
   int currentPageIndex = 1;
   int currentDashboardIndex = 0;
+  List<ProjectPostingModel> workingProjectPostings = [];
 
   @override
   Widget build(BuildContext context) {
@@ -284,16 +285,16 @@ class _NavigationExampleState extends State<NavigationExample> {
                                                             Navigator.pop(context);
                                                           },
                                                         ),
-                                                        if (posting.proposals == 0) Divider(),
-                                                        if (posting.proposals == 0)
-                                                          ListTile(
-                                                            leading: Icon(Icons.work),
-                                                            title: Text('Start working this project'),
-                                                            onTap: () {
-                                                              // Handle start working action
-                                                              Navigator.pop(context);
-                                                            },
-                                                          ),
+                                                        Divider(),
+                                                        ListTile(
+                                                          leading: Icon(Icons.work),
+                                                          title: Text('Start working this project'),
+                                                          onTap: () {
+                                                            // Handle start working action
+                                                            Navigator.pop(context);
+                                                            startWorkingProject(posting);
+                                                          },
+                                                        ),
                                                       ],
                                                     ),
                                                   );
@@ -428,5 +429,16 @@ class _NavigationExampleState extends State<NavigationExample> {
         ),
       ][currentPageIndex],
     );
+  }
+
+  void startWorkingProject(ProjectPostingModel posting) {
+    setState(() {
+      // Remove the selected project from the list of all projects
+      projectPostings.remove(posting);
+      // Add the selected project to the list of working projects
+      workingProjectPostings.add(posting);
+      // Switch to the "Working" page
+      currentDashboardIndex = 1;
+    });
   }
 }
