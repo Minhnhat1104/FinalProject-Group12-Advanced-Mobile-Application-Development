@@ -355,7 +355,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                     ),
                   ),
                 ] else if (currentDashboardIndex == 1) ...[
-                    Expanded(
+                  Expanded(
                       child: ListView.builder(
                         itemCount: workingProjectPostings.length,
                         itemBuilder: (context, index) {
@@ -438,7 +438,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                         },
                       ),
                     ),
-                  ] else if (currentDashboardIndex == 2) ...[
+                ] else if (currentDashboardIndex == 2) ...[
                   Text('Archived'),
                 ],
               ],
