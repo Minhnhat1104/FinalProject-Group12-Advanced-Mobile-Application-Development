@@ -30,6 +30,6 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: tdNeonBlue,
         ),
-        home: ProjectDetail());
+        home: DetailView());
   }
 }
