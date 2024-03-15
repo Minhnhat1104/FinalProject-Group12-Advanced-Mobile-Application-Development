@@ -6,6 +6,8 @@ class ProjectPostingModel {
   final int messages;
   final int hired;
   String projectStatus;
+  String projectScope;
+  int studentRequired;
 
   ProjectPostingModel({
     required this.title,
@@ -15,10 +17,20 @@ class ProjectPostingModel {
     required this.messages,
     required this.hired,
     required this.projectStatus,
+    required this.projectScope,
+    required this.studentRequired,
   });
 
   setProjectStatus(String status) {
     this.projectStatus = status;
+  }
+
+  setProjectScope(String scope) {
+    this.projectScope = projectScope;
+  }
+
+  setStudentRequired(int studentRequired) {
+    this.studentRequired = studentRequired;
   }
 }
 
@@ -31,6 +43,8 @@ List<ProjectPostingModel> projectPostings = [
     messages: 8,
     hired: 2,
     projectStatus: 'Hiring', 
+    projectScope: '3 to 6 months',
+    studentRequired: 6,
   ),
   ProjectPostingModel(
     title: 'Senior Frontend Developer (Fintech)',
@@ -40,6 +54,8 @@ List<ProjectPostingModel> projectPostings = [
     messages: 8,
     hired: 2,
     projectStatus: 'Hiring', 
+    projectScope: '3 to 6 months',
+    studentRequired: 6,
   ),
   ProjectPostingModel(
     title: 'Senior Frontend Developer (Fintech)',
@@ -49,5 +65,7 @@ List<ProjectPostingModel> projectPostings = [
     messages: 8,
     hired: 2,
     projectStatus: 'Hiring', 
+    projectScope: '3 to 6 months',
+    studentRequired: 6,
   ),
 ];
