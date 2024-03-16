@@ -33,6 +33,6 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: tdNeonBlue,
         ),
-        home: PostAProject1());
+        home: HomeDashboard());
   }
 }
