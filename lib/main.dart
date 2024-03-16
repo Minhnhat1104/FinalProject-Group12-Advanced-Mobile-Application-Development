@@ -31,6 +31,6 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: tdNeonBlue,
         ),
-        home: ProposalsView());
+        home: Dashboard());
   }
 }

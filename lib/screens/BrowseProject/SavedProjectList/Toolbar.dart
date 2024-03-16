@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:student_hub/constants/style.dart';
 
 class Toolbar extends StatelessWidget {
-  final Function onFavorite;
-
-  const Toolbar({super.key, required this.onFavorite});
+  const Toolbar({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +20,15 @@ class Toolbar extends StatelessWidget {
           ),
         ),
         Container(
+          padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
               color: Colors.pink,
               borderRadius: BorderRadius.all(Radius.circular(999))),
-          child: IconButton(
-            onPressed: () => {onFavorite()},
-            // color: Colors.pink,
-            icon: Icon(
-              Icons.favorite,
-              color: Colors.white,
-              size: 24.0,
-              semanticLabel: 'Text to announce in accessibility modes',
-            ),
+          child: Icon(
+            Icons.favorite,
+            color: Colors.white,
+            size: 24.0,
+            semanticLabel: 'Text to announce in accessibility modes',
           ),
         )
       ],
