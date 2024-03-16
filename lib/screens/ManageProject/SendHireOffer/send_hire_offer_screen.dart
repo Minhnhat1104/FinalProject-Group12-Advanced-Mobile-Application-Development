@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/model/project_posting_model.dart';
 import 'package:student_hub/model/proposal_model.dart';
+import 'package:student_hub/screens/ManageProject/ProjectDetail/project_detail_screen.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class ProposalsView extends StatefulWidget {
@@ -166,7 +168,9 @@ class _ProposalsViewState extends State<ProposalsView> {
                 ),
               ),
             ] else if (currentDashboardIndex == 1) ...[
-              Text('Detail'),
+              Expanded(
+                child: DetailView(projectPosting: projectPostings[0]),
+              ),
             ] else if (currentDashboardIndex == 2) ...[
               Text('Message'),
             ] else if (currentDashboardIndex == 3) ...[

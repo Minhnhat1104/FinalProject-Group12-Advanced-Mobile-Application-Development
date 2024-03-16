@@ -317,7 +317,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: posting.requirements.map((requirement) => Text('       • $requirement')).toList(),
+                                  children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
                                 ),
                                 SizedBox(height: 30),
                                 Row(
@@ -401,7 +401,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                   ),
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: posting.requirements.map((requirement) => Text('       • $requirement')).toList(),
+                                    children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
                                   ),
                                   SizedBox(height: 30),
                                   Row(
