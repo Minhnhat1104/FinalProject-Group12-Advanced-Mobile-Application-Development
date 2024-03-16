@@ -4,11 +4,13 @@ import 'package:student_hub/widgets/drawer_nav_widget.dart';
 
 class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final Function()? onUserIconPressed;
+  final Function? onUserIconPressed;
+  final Function? onBack;
 
   const HeaderNavBar({
     this.title = 'StudentHub',
     this.onUserIconPressed,
+    this.onBack,
     Key? key,
   }) : super(key: key);
 
@@ -20,6 +22,14 @@ class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: TextStyle(color: tdWhite),
       ),
+      leading: onBack != null
+          ? IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                onBack!();
+              },
+            )
+          : null,
       actions: [
         IconButton(
           icon: Icon(Icons.person, color: tdWhite),

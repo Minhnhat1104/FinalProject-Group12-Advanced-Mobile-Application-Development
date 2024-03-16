@@ -15,6 +15,8 @@ class ProjectList extends StatefulWidget {
 }
 
 class _ProjectListState extends State<ProjectList> {
+  bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -22,15 +24,27 @@ class _ProjectListState extends State<ProjectList> {
           left: APP_PADDING_X, right: APP_PADDING_X, top: APP_PADDING_X),
       child: Column(
         children: [
-          Toolbar(),
+          Toolbar(
+            onFavorite: () => {
+              setState(() {
+                isFavorite = true;
+              })
+            },
+          ),
           Container(
             margin: EdgeInsets.only(top: 16),
-            child: Column(children: [
-              ProjectItem(),
-              ProjectItem(),
-              ProjectItem(),
-              ProjectItem()
-            ]),
+            child: Column(
+                children: !isFavorite
+                    ? [
+                        ProjectItem(),
+                        ProjectItem(),
+                        ProjectItem(),
+                        ProjectItem()
+                      ]
+                    : [
+                        ProjectItem(),
+                        ProjectItem(),
+                      ]),
           )
         ],
       ),
