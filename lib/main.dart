@@ -4,14 +4,16 @@ import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
 import 'package:student_hub/screens/BrowseProject/ProjectDetail/index.dart';
 import 'package:student_hub/screens/BrowseProject/ProjectList/index.dart';
-import 'package:student_hub/screens/Dashboard/dashboard_screen.dart';
+import 'package:student_hub/screens/Main/main_screen.dart';
 import 'package:student_hub/screens/Home/index.dart';
 import 'package:student_hub/screens/Authentication/Login/index.dart';
-import 'package:student_hub/screens/ManageProject/Dashboard/dashboard_screen_2.dart';
-import 'package:student_hub/screens/ManageProject/SendHireOffer/send_hire_offer_screen.dart';
+import 'package:student_hub/screens/PostAProject/post_a_project_1.dart';
+import 'package:student_hub/screens/PostAProject/post_a_project_2.dart';
+import 'package:student_hub/screens/PostAProject/post_a_project_3.dart';
 import 'package:student_hub/screens/Profile/profile_input.dart';
 import 'package:student_hub/widgets/drawer_nav_widget.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
+import 'package:student_hub/widgets/nav_bar_dashboard.dart';
 
 var logger = Logger(
   printer: PrettyPrinter(),
@@ -31,6 +33,6 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: tdNeonBlue,
         ),
-        home: ProposalsView());
+        home: PostAProject1());
   }
 }

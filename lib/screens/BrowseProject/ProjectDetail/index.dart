@@ -190,7 +190,7 @@ class _IndexState extends State<ProjectDetail> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: tdNeonBlue,
-                            fixedSize: Size(200, 40),
+                            fixedSize: Size(150, 40),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8))),
                         onPressed: () {},
@@ -202,7 +202,7 @@ class _IndexState extends State<ProjectDetail> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: tdNeonBlue,
-                            fixedSize: Size(200, 40),
+                            fixedSize: Size(150, 40),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8))),
                         onPressed: () {},
@@ -213,7 +213,8 @@ class _IndexState extends State<ProjectDetail> {
                   ],
                 ),
               ),
-            )
+            ),
+            SizedBox(height: 20)
           ],
         ),
       ),

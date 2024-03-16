@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
-import 'package:student_hub/screens/Dashboard/dashboard_screen.dart';
+import 'package:student_hub/screens/Main/main_screen.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class Welcome extends StatelessWidget {
@@ -38,7 +38,8 @@ class Welcome extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Dashboard()),
+                  MaterialPageRoute(
+                      builder: (context) => const HomeDashboard()),
                 );
               },
               style: ElevatedButton.styleFrom(
