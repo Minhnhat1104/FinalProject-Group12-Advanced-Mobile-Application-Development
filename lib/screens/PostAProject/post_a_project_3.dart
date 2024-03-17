@@ -3,6 +3,7 @@ import 'package:student_hub/constants/colors.dart';
 
 import 'package:student_hub/constants/style.dart';
 import 'package:student_hub/screens/BrowseProject/ProjectDetail/index.dart';
+import 'package:student_hub/screens/PostAProject/post_a_project_4.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class PostAProject3 extends StatelessWidget {
@@ -45,51 +46,6 @@ class PostAProject3 extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Students are looking for",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  ListView(
-                    shrinkWrap: true,
-                    children: [
-                      ListTile(
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-                        leading: Icon(
-                          Icons.circle,
-                          size: 8,
-                        ), // Thay thế bằng biểu tượng hoặc văn bản tùy chọn
-                        title: Text(
-                          'Clear expectation about your project or deliverables',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ),
-                      ListTile(
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                        leading: Icon(
-                          Icons.circle,
-                          size: 8,
-                        ),
-                        title: Text(
-                          'The skills required for your project',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ),
-                      ListTile(
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                        leading: Icon(
-                          Icons.circle,
-                          size: 8,
-                        ),
-                        title: Text(
-                          'Detail about your project',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
                     "Describle your project",
                   ),
                   SizedBox(height: 12),
@@ -108,7 +64,7 @@ class PostAProject3 extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const ProjectDetail()),
+                              builder: (context) => const PostAProject4()),
                         );
                       },
                       style: ElevatedButton.styleFrom(

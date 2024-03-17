@@ -27,20 +27,20 @@ class _NotHaveProfileState extends State<NotHaveProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20),
+              // SizedBox(height: 20),
               Center(
                 child: Text(
                   'Build your product with high-skilled student',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(height: 20),
+              // SizedBox(height: 20),
               Text(
                 'Tell us about your company and you will be on your way connect with high-skilled students',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
                 textAlign: TextAlign.left,
               ),
-              SizedBox(height: 16),
+              // SizedBox(height: 16),
               CompanyForm(formKey: _formKey)
             ],
           ),
@@ -160,7 +160,7 @@ var companyPeopleOption = {
   2: "2-9 employees",
   3: "10-99 employees",
   4: "100-1000 employees",
-  5: "More thab 1000 employees",
+  5: "More than 1000 employees",
 };
 
 class _CompanyRadioPeopleState extends State<CompanyPeopleRadio> {
