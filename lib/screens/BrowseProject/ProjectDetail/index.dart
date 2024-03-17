@@ -29,12 +29,18 @@ class _IndexState extends State<ProjectDetail> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Project detail',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              children: [
+                Text(
+                  "4/4",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(width: 16),
+                Text(
+                  "Project details",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                )
+              ],
             ),
             SizedBox(height: 16),
             Text(

@@ -33,8 +33,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
-            currentDashboardIndex =
-                0; 
+            currentDashboardIndex = 0;
           });
         },
         selectedIndex: currentPageIndex,
@@ -111,7 +110,8 @@ class _NavigationExampleState extends State<NavigationExample> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 16),
                         ),
                         onPressed: () {},
                         child: Text(
@@ -139,7 +139,8 @@ class _NavigationExampleState extends State<NavigationExample> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: currentDashboardIndex == 0 ? tdNeonBlue : null,
+                            backgroundColor:
+                                currentDashboardIndex == 0 ? tdNeonBlue : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -148,7 +149,9 @@ class _NavigationExampleState extends State<NavigationExample> {
                           child: Text(
                             'All Projects',
                             style: TextStyle(
-                              color: currentDashboardIndex == 0 ? tdWhite : tdNeonBlue,
+                              color: currentDashboardIndex == 0
+                                  ? tdWhite
+                                  : tdNeonBlue,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -163,7 +166,8 @@ class _NavigationExampleState extends State<NavigationExample> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: currentDashboardIndex == 1 ? tdNeonBlue : null,
+                            backgroundColor:
+                                currentDashboardIndex == 1 ? tdNeonBlue : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -172,7 +176,9 @@ class _NavigationExampleState extends State<NavigationExample> {
                           child: Text(
                             'Working',
                             style: TextStyle(
-                              color: currentDashboardIndex == 1 ? tdWhite : tdNeonBlue,
+                              color: currentDashboardIndex == 1
+                                  ? tdWhite
+                                  : tdNeonBlue,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -187,7 +193,8 @@ class _NavigationExampleState extends State<NavigationExample> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: currentDashboardIndex == 2 ? tdNeonBlue : null,
+                            backgroundColor:
+                                currentDashboardIndex == 2 ? tdNeonBlue : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -196,7 +203,9 @@ class _NavigationExampleState extends State<NavigationExample> {
                           child: Text(
                             'Archived',
                             style: TextStyle(
-                              color: currentDashboardIndex == 2 ? tdWhite : tdNeonBlue,
+                              color: currentDashboardIndex == 2
+                                  ? tdWhite
+                                  : tdNeonBlue,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -214,21 +223,26 @@ class _NavigationExampleState extends State<NavigationExample> {
                         return Card(
                           margin: EdgeInsets.all(8),
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Flexible(
                                       flex: 1,
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             posting.title,
-                                            style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                color: tdGreen),
                                           ),
                                           IconButton(
                                             icon: Icon(Icons.more_horiz),
@@ -237,62 +251,86 @@ class _NavigationExampleState extends State<NavigationExample> {
                                               showModalBottomSheet(
                                                 context: context,
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
+                                                  borderRadius:
+                                                      BorderRadius.vertical(
+                                                          top: Radius.circular(
+                                                              10.0)),
                                                 ),
-                                                builder: (BuildContext context) {
+                                                builder:
+                                                    (BuildContext context) {
                                                   return Container(
                                                     child: Column(
-                                                      mainAxisSize: MainAxisSize.min,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
                                                       children: <Widget>[
                                                         ListTile(
-                                                          leading: Icon(Icons.assignment),
-                                                          title: Text('View proposals'),
+                                                          leading: Icon(
+                                                              Icons.assignment),
+                                                          title: Text(
+                                                              'View proposals'),
                                                           onTap: () {
                                                             // Handle view proposals action
-                                                            Navigator.pop(context);
+                                                            Navigator.pop(
+                                                                context);
                                                           },
                                                         ),
                                                         ListTile(
-                                                          leading: Icon(Icons.message),
-                                                          title: Text('View messages'),
+                                                          leading: Icon(
+                                                              Icons.message),
+                                                          title: Text(
+                                                              'View messages'),
                                                           onTap: () {
                                                             // Handle view messages action
-                                                            Navigator.pop(context);
+                                                            Navigator.pop(
+                                                                context);
                                                           },
                                                         ),
                                                         ListTile(
-                                                          leading: Icon(Icons.people),
-                                                          title: Text('View hired'),
+                                                          leading: Icon(
+                                                              Icons.people),
+                                                          title: Text(
+                                                              'View hired'),
                                                           onTap: () {
                                                             // Handle view hired action
-                                                            Navigator.pop(context);
+                                                            Navigator.pop(
+                                                                context);
                                                           },
                                                         ),
                                                         Divider(),
                                                         ListTile(
-                                                          leading: Icon(Icons.visibility),
-                                                          title: Text('View job posting'),
+                                                          leading: Icon(
+                                                              Icons.visibility),
+                                                          title: Text(
+                                                              'View job posting'),
                                                           onTap: () {
                                                             // Handle view job posting action
-                                                            Navigator.pop(context);
+                                                            Navigator.pop(
+                                                                context);
                                                           },
                                                         ),
                                                         ListTile(
-                                                          leading: Icon(Icons.edit),
-                                                          title: Text('Edit posting'),
+                                                          leading:
+                                                              Icon(Icons.edit),
+                                                          title: Text(
+                                                              'Edit posting'),
                                                           onTap: () {
                                                             // Handle edit posting action
-                                                            Navigator.pop(context);
+                                                            Navigator.pop(
+                                                                context);
                                                           },
                                                         ),
                                                         Divider(),
                                                         ListTile(
-                                                          leading: Icon(Icons.work),
-                                                          title: Text('Start working this project'),
+                                                          leading:
+                                                              Icon(Icons.work),
+                                                          title: Text(
+                                                              'Start working this project'),
                                                           onTap: () {
                                                             // Handle start working action
-                                                            Navigator.pop(context);
-                                                            startWorkingProject(posting);
+                                                            Navigator.pop(
+                                                                context);
+                                                            startWorkingProject(
+                                                                posting);
                                                           },
                                                         ),
                                                       ],
@@ -317,28 +355,35 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: posting.requirements.map((requirement) => Text('       • $requirement')).toList(),
+                                  children: posting.requirements
+                                      .map((requirement) =>
+                                          Text('       • $requirement'))
+                                      .toList(),
                                 ),
                                 SizedBox(height: 30),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text('${posting.proposals}'),
                                         Text('Proposals'),
                                       ],
                                     ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text('${posting.messages}'),
                                         Text('Messages'),
                                       ],
                                     ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text('${posting.hired}'),
                                         Text('Hired'),
@@ -356,88 +401,101 @@ class _NavigationExampleState extends State<NavigationExample> {
                   ),
                 ] else if (currentDashboardIndex == 1) ...[
                   Expanded(
-                      child: ListView.builder(
-                        itemCount: workingProjectPostings.length,
-                        itemBuilder: (context, index) {
-                          ProjectPostingModel posting = workingProjectPostings[index];
-                          return Card(
-                            margin: EdgeInsets.all(8),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Flexible(
-                                        flex: 1,
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              posting.title,
-                                              style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
-                                            ),
-                                            IconButton(
-                                              icon: Icon(Icons.more_horiz),
-                                              color: tdNeonBlue,
-                                              onPressed: () {
-                                                // Show options for working project
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    posting.createdDate,
-                                    style: TextStyle(color: tdGrey),
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Students are looking for',
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: posting.requirements.map((requirement) => Text('       • $requirement')).toList(),
-                                  ),
-                                  SizedBox(height: 30),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                    child: ListView.builder(
+                      itemCount: workingProjectPostings.length,
+                      itemBuilder: (context, index) {
+                        ProjectPostingModel posting =
+                            workingProjectPostings[index];
+                        return Card(
+                          margin: EdgeInsets.all(8),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Flexible(
+                                      flex: 1,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${posting.proposals}'),
-                                          Text('Proposals'),
+                                          Text(
+                                            posting.title,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                color: tdGreen),
+                                          ),
+                                          IconButton(
+                                            icon: Icon(Icons.more_horiz),
+                                            color: tdNeonBlue,
+                                            onPressed: () {
+                                              // Show options for working project
+                                            },
+                                          ),
                                         ],
                                       ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('${posting.messages}'),
-                                          Text('Messages'),
-                                        ],
-                                      ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('${posting.hired}'),
-                                          Text('Hired'),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 12),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  posting.createdDate,
+                                  style: TextStyle(color: tdGrey),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Students are looking for',
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: posting.requirements
+                                      .map((requirement) =>
+                                          Text('       • $requirement'))
+                                      .toList(),
+                                ),
+                                SizedBox(height: 30),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('${posting.proposals}'),
+                                        Text('Proposals'),
+                                      ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('${posting.messages}'),
+                                        Text('Messages'),
+                                      ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text('${posting.hired}'),
+                                        Text('Hired'),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 12),
+                              ],
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
+                  ),
                 ] else if (currentDashboardIndex == 2) ...[
                   Text('Archived'),
                 ],
@@ -531,7 +589,8 @@ class _NavigationExampleState extends State<NavigationExample> {
                   Text('Cannot Start Working'),
                 ],
               ),
-              content: Text('This project still has proposals or is already being worked on. You cannot start working on it.'),
+              content: Text(
+                  'This project still has proposals or is already being worked on. You cannot start working on it.'),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {

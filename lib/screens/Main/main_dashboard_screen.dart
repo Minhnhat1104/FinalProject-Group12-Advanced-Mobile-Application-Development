@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
+import 'package:student_hub/screens/PostAProject/post_a_project_1.dart';
 import 'package:student_hub/widgets/nav_bar_dashboard.dart';
 
 class MainDashboard extends StatelessWidget {
@@ -26,7 +27,13 @@ class MainDashboard extends StatelessWidget {
                         fixedSize: Size(150, 30),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PostAProject1()),
+                      );
+                    },
                     child: Text(
                       'Post a job',
                       style: TextStyle(
