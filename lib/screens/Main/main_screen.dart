@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/screens/Main/main_dashboard_screen.dart';
 import 'package:student_hub/screens/Main/Message/index.dart';
-import 'package:student_hub/screens/Main/main_notification_screen.dart';
+import 'package:student_hub/screens/Main/Alerts/index.dart';
 import 'package:student_hub/screens/Main/Projects/index.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 import 'dart:developer' as developer;
@@ -63,7 +63,7 @@ class _NavigationExampleState extends State<NavigationExample> {
               color: tdNeonBlue,
             ),
             icon: Icon(Icons.web),
-            label: 'Project',
+            label: 'Projects',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.calendar_month, color: tdNeonBlue),
@@ -81,13 +81,13 @@ class _NavigationExampleState extends State<NavigationExample> {
                 Icons.messenger_sharp,
               ),
             ),
-            label: 'Messages',
+            label: 'Message',
           ),
           NavigationDestination(
             selectedIcon: Badge(
                 child: Icon(Icons.notifications_sharp, color: tdNeonBlue)),
             icon: Badge(child: Icon(Icons.notifications_sharp)),
-            label: 'Notifications',
+            label: 'Alerts',
           ),
         ],
       ),
@@ -97,7 +97,7 @@ class _NavigationExampleState extends State<NavigationExample> {
             showFavoriteProject: showFavoriteProject),
         MainDashboard(),
         MainMessages(),
-        MainNotification(),
+        Alerts(),
       ][currentPageIndex],
     );
   }
