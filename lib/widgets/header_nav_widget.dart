@@ -6,11 +6,13 @@ class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Function? onUserIconPressed;
   final Function? onBack;
+  final Function? onMore;
 
   const HeaderNavBar({
     this.title = 'StudentHub',
     this.onUserIconPressed,
     this.onBack,
+    this.onMore,
     Key? key,
   }) : super(key: key);
 
@@ -25,21 +27,35 @@ class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
       leading: onBack != null
           ? IconButton(
               icon: Icon(Icons.arrow_back),
+              color: Colors.white,
               onPressed: () {
                 onBack!();
               },
             )
           : null,
       actions: [
-        IconButton(
-          icon: Icon(Icons.person, color: tdWhite),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const UserSetting()),
-            );
-          },
-        ),
+        if (onMore != null)
+          IconButton(
+            icon: Icon(Icons.more_horiz_rounded, color: tdWhite),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const UserSetting()),
+              );
+            },
+          )
+        else
+          IconButton(
+            icon: Icon(Icons.person, color: tdWhite),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const UserSetting()),
+              );
+            },
+          ),
       ],
     );
   }

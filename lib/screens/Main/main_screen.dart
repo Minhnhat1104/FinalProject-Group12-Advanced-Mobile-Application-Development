@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/screens/Main/main_dashboard_screen.dart';
-import 'package:student_hub/screens/Main/main_messages_screen.dart';
+import 'package:student_hub/screens/Main/Message/index.dart';
 import 'package:student_hub/screens/Main/main_notification_screen.dart';
-import 'package:student_hub/screens/Main/main_project_screen.dart';
+import 'package:student_hub/screens/Main/Projects/index.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 import 'dart:developer' as developer;
 
@@ -92,7 +92,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         ],
       ),
       body: <Widget>[
-        MainProject(
+        Projects(
             setShowFavoriteProject: setShowFavoriteProject,
             showFavoriteProject: showFavoriteProject),
         MainDashboard(),
