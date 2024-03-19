@@ -356,6 +356,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: posting.requirements
+                                      .split('\n')
                                       .map((requirement) =>
                                           Text('       • $requirement'))
                                       .toList(),

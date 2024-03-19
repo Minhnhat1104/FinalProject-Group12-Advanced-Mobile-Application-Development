@@ -8,12 +8,13 @@ const INPUT_TITLE_STYLE =
 
 InputDecoration inputOutlined(String hintText) {
   return InputDecoration(
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.greenAccent, width: 1.0),
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.grey, width: 1.0),
-    ),
-    hintText: hintText,
-  );
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.greenAccent, width: 1.0),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey, width: 1.0),
+      ),
+      hintText: hintText,
+      filled: true,
+      fillColor: Colors.white);
 }
