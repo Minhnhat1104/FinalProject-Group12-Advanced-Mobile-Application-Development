@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/project_posting_model.dart';
+import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class DetailView extends StatelessWidget {
   final ProjectPostingModel projectPosting; 
@@ -10,6 +11,7 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: HeaderNavBar(),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(

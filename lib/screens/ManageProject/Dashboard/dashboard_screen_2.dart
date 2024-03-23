@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/project_posting_model.dart';
+import 'package:student_hub/screens/ManageProject/ProjectDetail/project_detail_screen.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class Dashboard2 extends StatelessWidget {
@@ -211,7 +212,17 @@ class _NavigationExampleState extends State<NavigationExample> {
                       itemCount: projectPostings.length,
                       itemBuilder: (context, index) {
                         ProjectPostingModel posting = projectPostings[index];
-                        return Card(
+                        return GestureDetector(
+                          onTap: () {
+                            // Navigate to detail view when a project is clicked
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailView(projectPosting: posting),
+                              ),
+                            );
+                          },
+                        child: Card(
                           margin: EdgeInsets.all(8),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
@@ -350,6 +361,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                               ],
                             ),
                           ),
+                        ),
                         );
                       },
                     ),
@@ -510,6 +522,7 @@ class _NavigationExampleState extends State<NavigationExample> {
             ),
           ),
         ),
+        
         // Messages page
         ListView.builder(
           reverse: true,

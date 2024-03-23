@@ -24,10 +24,11 @@ class HeaderNavBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: TextStyle(color: tdWhite),
       ),
+      iconTheme: IconThemeData(color: Colors.white),
       leading: onBack != null
           ? IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: Colors.white,
+              icon: Icon(Icons.arrow_back, color: Colors.white),
+              color: tdWhite,
               onPressed: () {
                 onBack!();
               },
