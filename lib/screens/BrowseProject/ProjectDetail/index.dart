@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/constants/style.dart';
+import 'package:student_hub/model/proposal_model.dart';
+import 'package:student_hub/screens/StudentSubmitProposal/submit_proposal.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class ProjectDetail extends StatefulWidget {
-  const ProjectDetail({Key? key}) : super(key: key);
+  const ProjectDetail({Key? key})
+      : super(key: key);
 
   @override
   _IndexState createState() => _IndexState();
@@ -194,16 +197,24 @@ class _IndexState extends State<ProjectDetail> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: tdNeonBlue,
-                            fixedSize: Size(150, 40),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        onPressed: () {},
-                        child: Text(
-                          'Apply Now',
-                          style: TextStyle(color: tdWhite, fontSize: 18),
-                        )),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: tdNeonBlue,
+                        fixedSize: Size(150, 40),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)
+                        )
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => StudentSubmitProposal()),
+                        );
+                      },
+                      child: Text(
+                        'Apply Now',
+                        style: TextStyle(color: tdWhite, fontSize: 18),
+                      )
+                    ),
                     SizedBox(width: 16),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(

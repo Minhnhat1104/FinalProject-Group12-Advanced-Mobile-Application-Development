@@ -126,15 +126,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                 ),
               ),
               if (currentDashboardIndex == 0) ...[
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: projectPostings.length,
-                    itemBuilder: (context, index) {
-                      ProjectPostingModel posting = projectPostings[index];
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Card(
+                Card(
                             margin: EdgeInsets.all(8),
                             child: Padding(
                               padding: EdgeInsets.all(12.0),
@@ -163,7 +155,16 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ],
                               ),
                             ),
-                          ),
+                          ),          
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: projectPostings.length,
+                    itemBuilder: (context, index) {
+                      ProjectPostingModel posting = projectPostings[index];
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          
                           Card(
                             margin: EdgeInsets.all(8),
                             child: Padding(
@@ -225,13 +226,13 @@ class _NavigationExampleState extends State<NavigationExample> {
                                   ),
                                   SizedBox(height: 18),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                     child: Divider( 
                                       color: const Color.fromARGB(255, 206, 206, 206), 
                                       thickness: 0.8, 
                                     ),
                                   ),
-                                  SizedBox(height: 1),
+                                  SizedBox(height: 18),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -273,8 +274,6 @@ class _NavigationExampleState extends State<NavigationExample> {
                                       children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
                                     ),
                                   ),
-                                  
-                                  
                                   SizedBox(height: 30),
                                 ],
                               ),
