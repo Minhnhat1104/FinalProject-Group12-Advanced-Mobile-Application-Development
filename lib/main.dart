@@ -8,6 +8,7 @@ import 'package:student_hub/screens/Main/MessageDetail/index.dart';
 import 'package:student_hub/screens/Main/main_screen.dart';
 import 'package:student_hub/screens/Home/index.dart';
 import 'package:student_hub/screens/Authentication/Login/index.dart';
+import 'package:student_hub/screens/ManageProject/Dashboard/dashboard_screen_2.dart';
 import 'package:student_hub/screens/PostAProject/post_a_project_1.dart';
 import 'package:student_hub/screens/PostAProject/post_a_project_2.dart';
 import 'package:student_hub/screens/PostAProject/post_a_project_3.dart';
@@ -34,6 +35,6 @@ class MainApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: tdNeonBlue,
         ),
-        home: HomeDashboard());
+        home: Dashboard2());
   }
 }
