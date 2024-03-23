@@ -16,7 +16,15 @@ class ProposalsView extends StatefulWidget {
 
 class _ProposalsViewState extends State<ProposalsView> {
   int currentDashboardIndex = 0;
+  bool sentHiredOffer = false; // Track whether the hired offer has been sent
 
+  // Function to handle sending the hired offer
+  void sendHiredOffer() {
+    setState(() {
+      // Update the state to reflect that the hired offer has been sent
+      sentHiredOffer = true;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -155,7 +163,10 @@ class _ProposalsViewState extends State<ProposalsView> {
                   itemCount: proposals.length,
                   itemBuilder: (context, index) {
                     final proposal = proposals[index];
-                    return ProposalCard(proposal: proposal);
+                    return ProposalCard(
+                      proposal: proposal,
+                      sendHiredOffer: sendHiredOffer, // Pass the callback function
+                    );
                   },
                 ),
               ),
