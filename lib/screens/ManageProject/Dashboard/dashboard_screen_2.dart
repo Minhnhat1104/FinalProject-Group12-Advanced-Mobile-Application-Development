@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/project_posting_model.dart';
-import 'package:student_hub/screens/ManageProject/ProjectDetail/project_detail_screen.dart';
+import 'package:student_hub/model/proposal_model.dart';
+import 'package:student_hub/screens/ManageProject/SendHireOffer/send_hire_offer_screen.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class Dashboard2 extends StatelessWidget {
@@ -212,13 +213,13 @@ class _NavigationExampleState extends State<NavigationExample> {
                       itemCount: projectPostings.length,
                       itemBuilder: (context, index) {
                         ProjectPostingModel posting = projectPostings[index];
+                        final proposal = proposals[index];
                         return GestureDetector(
                           onTap: () {
-                            // Navigate to detail view when a project is clicked
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DetailView(projectPosting: posting),
+                                builder: (context) => ProposalsView(selectedProposal: proposal),
                               ),
                             );
                           },

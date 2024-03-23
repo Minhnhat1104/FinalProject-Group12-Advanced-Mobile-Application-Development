@@ -6,6 +6,9 @@ import 'package:student_hub/screens/ManageProject/ProjectDetail/project_detail_s
 import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class ProposalsView extends StatefulWidget {
+  final Proposal selectedProposal;
+
+  ProposalsView({required this.selectedProposal});
   @override
   _ProposalsViewState createState() => _ProposalsViewState();
 }
@@ -205,7 +208,7 @@ class ProposalCard extends StatelessWidget {
                   Icon(
                     Icons.person,
                     color: tdNeonBlue,
-                    size: 40, // Adjust the size of the icon as needed
+                    size: 40, 
                   ),
                   SizedBox(width: 16),
                   Column(
@@ -244,7 +247,7 @@ class ProposalCard extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 8), // Thêm lề dọc
+                          padding: EdgeInsets.symmetric(vertical: 8), 
                           child: Text('Message'),
                         ),
                       ),
@@ -258,11 +261,11 @@ class ProposalCard extends StatelessWidget {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10), // Giảm bán kính của nút
+                            borderRadius: BorderRadius.circular(10), 
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 8), // Thêm lề dọc
+                          padding: EdgeInsets.symmetric(vertical: 8),
                           child: Text('Hire'),
                         ),
                       ),
@@ -271,9 +274,9 @@ class ProposalCard extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              Divider( // Add Divider widget
-                color: const Color.fromARGB(255, 206, 206, 206), // Specify the color of the divider
-                thickness: 0.8, // Specify the thickness of the divider
+              Divider( 
+                color: const Color.fromARGB(255, 206, 206, 206), 
+                thickness: 0.8, 
               ),
             ],
           ),

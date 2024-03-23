@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/constants/colors.dart';
 import 'package:student_hub/model/project_posting_model.dart';
-import 'package:student_hub/widgets/header_nav_widget.dart';
 
 class DetailView extends StatelessWidget {
   final ProjectPostingModel projectPosting; 
@@ -11,23 +10,22 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HeaderNavBar(),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Divider( // Add Divider widget
-                color: const Color.fromARGB(255, 206, 206, 206), // Specify the color of the divider
-                thickness: 0.6, // Specify the thickness of the divider
+            Divider( 
+                color: const Color.fromARGB(255, 206, 206, 206), 
+                thickness: 0.6,
               ),
             SizedBox(height: 16),
             _buildDetailDescription(projectPosting),
 
             SizedBox(height: 16),
-            Divider( // Add Divider widget
-              color: const Color.fromARGB(255, 206, 206, 206), // Specify the color of the divider
-              thickness: 0.6, // Specify the thickness of the divider
+            Divider( 
+              color: const Color.fromARGB(255, 206, 206, 206),
+              thickness: 0.6, 
             ),
             SizedBox(height: 16),
 
@@ -64,7 +62,7 @@ class DetailView extends StatelessWidget {
   Widget _buildJobScope(ProjectPostingModel projectPosting) {
     return Row(
       children: [
-        Icon(Icons.alarm), // Clock icon
+        Icon(Icons.alarm), 
         SizedBox(width: 8),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,12 +99,12 @@ class DetailView extends StatelessWidget {
 
   Widget _buildPostJobButton() {
     return Padding(
-      padding: EdgeInsets.only(bottom: 16.0, right: 16.0), // Adjust padding as needed
+      padding: EdgeInsets.only(bottom: 16.0, right: 16.0), 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-            width: 180, // Adjust the width as needed
+            width: 180, 
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: tdNeonBlue,
