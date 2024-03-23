@@ -286,7 +286,81 @@ class _NavigationExampleState extends State<NavigationExample> {
                   ),
                 ),
               ] else if (currentDashboardIndex == 1) ...[
-                // Your code for displaying working projects
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: projectPostings.length,
+                    itemBuilder: (context, index) {
+                      ProjectPostingModel posting = projectPostings[index];
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Card(
+                            elevation: 0,
+                            shadowColor: Colors.transparent,
+                            margin: EdgeInsets.all(8),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0), // Adjust the padding as needed
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Flexible(
+                                        flex: 1,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                posting.title,
+                                                style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical:2),
+                                    child: Text(
+                                      'Time: ${posting.projectScope}, ${posting.studentRequired} students',
+                                      style: TextStyle(color: tdGrey),
+                                    ),
+                                  ),
+                                  SizedBox(height: 12),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    child: Text(
+                                      'Students are looking for',
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
+                                    ),
+                                  ),
+                                  SizedBox(height: 14),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Divider( 
+                              color: const Color.fromARGB(255, 206, 206, 206), 
+                              thickness: 0.8, 
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
               ] else if (currentDashboardIndex == 2) ...[
                 Text('Archived'),
               ],
