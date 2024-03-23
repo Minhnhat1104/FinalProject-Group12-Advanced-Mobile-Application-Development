@@ -64,7 +64,10 @@ class ProposalCard extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(vertical: 8), 
-                          child: Text('Message'),
+                          child: Text(
+                            'Message',
+                            style: TextStyle(color: tdNeonBlue), 
+                          ),
                         ),
                       ),
                     ),
@@ -82,7 +85,10 @@ class ProposalCard extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(vertical: 8),
-                          child: Text('Hire'),
+                          child: Text(
+                            'Hire',
+                            style: TextStyle(color: tdNeonBlue), 
+                          ),
                         ),
                       ),
                     ),

@@ -53,17 +53,14 @@ class _ProposalsViewState extends State<ProposalsView> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         minimumSize: Size(120, 40),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 4),
-                          Text(
-                            'Proposals',
-                            style: TextStyle(
-                              color: currentDashboardIndex == 0 ? tdWhite : tdNeonBlue,
-                              fontWeight: FontWeight.w500,
-                            ),
+                      child: Center(
+                        child: Text(
+                          'Proposals',
+                          style: TextStyle(
+                            color: currentDashboardIndex == 0 ? tdWhite : tdNeonBlue,
+                            fontWeight: FontWeight.w500,
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -83,17 +80,14 @@ class _ProposalsViewState extends State<ProposalsView> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         minimumSize: Size(120, 40),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 4),
-                          Text(
-                            'Detail',
-                            style: TextStyle(
-                              color: currentDashboardIndex == 1 ? tdWhite : tdNeonBlue,
-                              fontWeight: FontWeight.w500,
-                            ),
+                      child: Center(
+                        child: Text(
+                          'Detail',
+                          style: TextStyle(
+                            color: currentDashboardIndex == 1 ? tdWhite : tdNeonBlue,
+                            fontWeight: FontWeight.w500,
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -113,17 +107,14 @@ class _ProposalsViewState extends State<ProposalsView> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         minimumSize: Size(120, 40),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 4),
-                          Text(
-                            'Message',
-                            style: TextStyle(
-                              color: currentDashboardIndex == 2 ? tdWhite : tdNeonBlue,
-                              fontWeight: FontWeight.w500,
-                            ),
+                      child: Center( 
+                        child: Text(
+                          'Message',
+                          style: TextStyle(
+                            color: currentDashboardIndex == 2 ? tdWhite : tdNeonBlue,
+                            fontWeight: FontWeight.w500,
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -143,17 +134,14 @@ class _ProposalsViewState extends State<ProposalsView> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         minimumSize: Size(120, 40),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 4),
-                          Text(
-                            'Hired',
-                            style: TextStyle(
-                              color: currentDashboardIndex == 3 ? tdWhite : tdNeonBlue,
-                              fontWeight: FontWeight.w500,
-                            ),
+                      child: Center( 
+                        child: Text(
+                          'Hired',
+                          style: TextStyle(
+                            color: currentDashboardIndex == 3 ? tdWhite : tdNeonBlue,
+                            fontWeight: FontWeight.w500,
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
