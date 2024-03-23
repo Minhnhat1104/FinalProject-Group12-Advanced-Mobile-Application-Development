@@ -131,69 +131,156 @@ class _NavigationExampleState extends State<NavigationExample> {
                     itemCount: projectPostings.length,
                     itemBuilder: (context, index) {
                       ProjectPostingModel posting = projectPostings[index];
-                      return Card(
-                        margin: EdgeInsets.all(8),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: 12), 
-                                child: Text(
-                                  'Submitted proposal (0)',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Card(
+                            margin: EdgeInsets.all(8),
+                            child: Padding(
+                              padding: EdgeInsets.all(12.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Flexible(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            posting.title,
-                                            style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 12),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Flexible(
+                                          flex: 1,
+                                          child: Text(
+                                            'Active proposal (0)',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 16,
+                                            ),
                                           ),
-                                        ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Add more children here as needed
+                                ],
+                              ),
+                            ),
+                          ),
+                          Card(
+                            margin: EdgeInsets.all(8),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0), // Adjust the padding as needed
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 12), 
+                                    child: Text(
+                                        'Submitted proposal (0)',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.black,
+                                        fontSize: 16,
                                       ),
                                     ),
                                   ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Flexible(
+                                        flex: 1,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                posting.title,
+                                                style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical:2),
+                                    child: Text(
+                                      posting.createdDate,
+                                      style: TextStyle(color: tdGrey),
+                                    ),
+                                  ),
+                                  SizedBox(height: 12),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    child: Text(
+                                      'Students are looking for',
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
+                                    ),
+                                  ),
+                                  SizedBox(height: 18),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                    child: Divider( 
+                                      color: const Color.fromARGB(255, 206, 206, 206), 
+                                      thickness: 0.8, 
+                                    ),
+                                  ),
+                                  SizedBox(height: 1),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Flexible(
+                                        flex: 1,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                posting.title,
+                                                style: TextStyle(fontWeight: FontWeight.w500, color: tdGreen),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical:2),
+                                    child: Text(
+                                      posting.createdDate,
+                                      style: TextStyle(color: tdGrey),
+                                    ),
+                                  ),
+                                  SizedBox(height: 12),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    child: Text(
+                                      'Students are looking for',
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
+                                    ),
+                                  ),
+                                  
+                                  
+                                  SizedBox(height: 30),
                                 ],
                               ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical:2),
-                                child: Text(
-                                  posting.createdDate,
-                                  style: TextStyle(color: tdGrey),
-                                ),
-                              ),
-                              SizedBox(height: 12),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
-                                child: Text(
-                                  'Students are looking for',
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: posting.requirements.split('\n').map((requirement) => Text('       • $requirement')).toList(),
-                                ),
-                              ),
-                              SizedBox(height: 30),
-                            ],
+                            ),
                           ),
-                        ),
+                        ],
                       );
                     },
                   ),
