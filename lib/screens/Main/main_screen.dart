@@ -4,6 +4,7 @@ import 'package:student_hub/screens/Main/main_dashboard_screen.dart';
 import 'package:student_hub/screens/Main/Message/index.dart';
 import 'package:student_hub/screens/Main/Alerts/index.dart';
 import 'package:student_hub/screens/Main/Projects/index.dart';
+import 'package:student_hub/screens/StudentSubmitProposal/student_dash_board.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 import 'dart:developer' as developer;
 
@@ -26,7 +27,7 @@ class NavigationExample extends StatefulWidget {
 }
 
 class _NavigationExampleState extends State<NavigationExample> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 1;
   bool showFavoriteProject = false;
 
   void setShowFavoriteProject(bool newValue) {
@@ -95,7 +96,8 @@ class _NavigationExampleState extends State<NavigationExample> {
         Projects(
             setShowFavoriteProject: setShowFavoriteProject,
             showFavoriteProject: showFavoriteProject),
-        MainDashboard(),
+        // MainDashboard(),
+        StudentMainDashboard(),
         MainMessages(),
         Alerts(),
       ][currentPageIndex],

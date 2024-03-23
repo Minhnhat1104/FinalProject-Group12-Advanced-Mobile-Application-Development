@@ -13,6 +13,7 @@ import 'package:student_hub/screens/PostAProject/post_a_project_1.dart';
 import 'package:student_hub/screens/PostAProject/post_a_project_2.dart';
 import 'package:student_hub/screens/PostAProject/post_a_project_3.dart';
 import 'package:student_hub/screens/Profile/profile_input.dart';
+import 'package:student_hub/screens/StudentSubmitProposal/student_dash_board.dart';
 import 'package:student_hub/widgets/drawer_nav_widget.dart';
 import 'package:student_hub/widgets/header_nav_widget.dart';
 import 'package:student_hub/widgets/nav_bar_dashboard.dart';
